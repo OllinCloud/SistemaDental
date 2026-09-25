@@ -725,13 +725,38 @@ if (newTreatmentForm) {
 
 function showLogin() {
 
-    loginView.classList.remove('hidden');
+    // Ocultar todo el cascarón del sistema (sidebar y vistas)
+    const appShell = document.querySelector('.app-shell');
+    if (appShell) {
+        appShell.classList.add('hidden');
+    }
 
-    dashboardView.classList.add('hidden');
+    // Ocultar todas las pantallas internas
+    const allViews = [
+        dashboardView,
+        patientsView,
+        patientDetailView,
+        editPatientView,
+        editMedicalHistoryView,
+        newPatientView,
+        newClinicalNoteView,
+        newTreatmentView,
+        editTreatmentView
+    ];
 
-    patientsView.classList.add('hidden');
+    allViews.forEach(function (view) {
+        if (view) {
+            view.classList.add('hidden');
+        }
+    });
 
-    patientDetailView.classList.add('hidden');
+    // Mostrar la pantalla de inicio de sesión
+    if (loginView) {
+        loginView.classList.remove('hidden');
+    }
+
+    document.body.classList.remove('dashboard-active');
+    window.scrollTo(0, 0);
 
 }
 
@@ -742,9 +767,19 @@ function showLogin() {
 
 function showDashboard() {
 
-    loginView.classList.add('hidden');
+    // Mostrar el cascarón del sistema
+    const appShell = document.querySelector('.app-shell');
+    if (appShell) {
+        appShell.classList.remove('hidden');
+    }
 
-    dashboardView.classList.remove('hidden');
+    if (loginView) {
+        loginView.classList.add('hidden');
+    }
+
+    if (dashboardView) {
+        dashboardView.classList.remove('hidden');
+    }
 
     setActiveNavItem('dashboardNavItem');
 
@@ -3051,33 +3086,63 @@ loginForm.addEventListener(
 
 
 // ========================================
-// CERRAR SESIÓN
+// CERRAR SESIÓN CON MODAL DE ADVERTENCIA
 // ========================================
 
-logoutButton.addEventListener(
-    'click',
-    async function () {
+const logoutConfirmModal = document.getElementById('logoutConfirmModal');
+const cancelLogoutModalButton = document.getElementById('cancelLogoutModalButton');
+const confirmLogoutModalButton = document.getElementById('confirmLogoutModalButton');
 
-        const { error } =
-            await supabaseClient.auth.signOut();
+// 1. Abrir modal de advertencia al presionar "Cerrar sesión"
+if (logoutButton && logoutConfirmModal) {
+    logoutButton.addEventListener('click', function () {
+        logoutConfirmModal.classList.remove('hidden');
+    });
+}
 
+// 2. Cerrar modal al presionar "Cancelar"
+if (cancelLogoutModalButton && logoutConfirmModal) {
+    cancelLogoutModalButton.addEventListener('click', function () {
+        logoutConfirmModal.classList.add('hidden');
+    });
+}
 
-        if (error) {
+// 3. Cerrar si el usuario hace clic fuera de la tarjeta (en el fondo oscuro)
+if (logoutConfirmModal) {
+    logoutConfirmModal.addEventListener('click', function (e) {
+        if (e.target === logoutConfirmModal) {
+            logoutConfirmModal.classList.add('hidden');
+        }
+    });
+}
 
-            console.error(error);
-
-            return;
-
+// Ejecutar cierre de sesión cuando el usuario confirma en el modal
+if (confirmLogoutModalButton) {
+    confirmLogoutModalButton.addEventListener('click', async function () {
+        // 1. Cerrar la ventana emergente
+        if (logoutConfirmModal) {
+            logoutConfirmModal.classList.add('hidden');
         }
 
+        // 2. Intentar cerrar sesión en Supabase sin bloquear la interfaz si falla
+        try {
+            await supabaseClient.auth.signOut();
+        } catch (err) {
+            console.warn('Advertencia al cerrar sesión:', err);
+        }
 
+        // 3. Limpiar campos del formulario de login
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        if (emailInput) emailInput.value = '';
+        if (passwordInput) passwordInput.value = '';
+        if (loginMessage) loginMessage.textContent = '';
+
+        // 4. Siempre enviar al usuario a la pantalla de login
         showLogin();
+    });
+}
 
-    }
-);
-
-
-// ========================================
 // COMPROBAR SESIÓN EXISTENTE
 // ========================================
 
