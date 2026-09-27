@@ -3491,3 +3491,40 @@ body.dark-mode .fp-patient-name {
 body.dark-mode .fp-subtitle {
     color: var(--accent);   /* el teal claro del tema oscuro */
 }
+
+/* Fondos oscuros para las cajas de datos (Teléfono, Correo) */
+body.dark-mode .patient-list-detail {
+    background: #0F172A !important;
+    border: 1px solid #334155 !important;
+}
+
+/* Ícono dentro de la caja de datos */
+body.dark-mode .patient-list-detail svg {
+    color: #2DD4BF !important;
+}
+
+/* Línea divisoria de la tarjeta */
+body.dark-mode .patient-list-divider {
+    background: #334155 !important;
+}
+
+/* Pastilla de estado en modo oscuro */
+body.dark-mode .patient-status-row {
+    background: rgba(16, 185, 129, 0.15) !important;
+    color: #34D399 !important;
+    border-color: rgba(16, 185, 129, 0.3) !important;
+}
+
+body.dark-mode .patient-status-dot {
+    background: #34D399 !important;
+}
+
+body.dark-mode .patient-status-row.inactive {
+    background: rgba(148, 163, 184, 0.15) !important;
+    color: #94A3B8 !important;
+    border-color: rgba(148, 163, 184, 0.3) !important;
+}
+
+body.dark-mode .patient-status-row.inactive .patient-status-dot {
+    background: #94A3B8 !important;
+}
