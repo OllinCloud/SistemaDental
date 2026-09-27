@@ -3135,3 +3135,304 @@ body.dark-mode .danger-button:hover {
     background: #DC2626;
     border-color: #DC2626;
 }
+/* ========================================================
+   BARRA SUPERIOR FIJA Y BOTÓN CERRAR SESIÓN EN MÓVILES
+   ======================================================== */
+@media (max-width: 900px) {
+    /* 1. Permitir scroll natural en el cuerpo */
+    html, body, .app-shell {
+        overflow-x: clip !important;
+    }
+
+    body.dashboard-active {
+        overflow: auto !important;
+    }
+
+    .app-shell {
+        flex-direction: column !important;
+    }
+
+    /* 2. Barra fija y visible en el tope de la pantalla */
+    .sidebar {
+        position: sticky !important;
+        top: 0 !important;
+        left: 0 !important;
+        z-index: 1000 !important;
+        width: 100% !important;
+        height: auto !important;
+        background: var(--navy-deep, #071E33) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35) !important;
+        padding: 10px 14px 10px !important;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        overflow: visible !important;
+    }
+
+    body.dark-mode .sidebar {
+        background: #0B132B !important;
+        border-bottom-color: #334155 !important;
+    }
+
+    /* 3. Nombre y logo del consultorio (arriba a la izquierda) */
+    .brand {
+        order: 1 !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border: none !important;
+        flex: 1 !important;
+        min-width: 0 !important;
+    }
+
+    .brand-mark {
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 12px !important;
+        flex-shrink: 0 !important;
+    }
+
+    .brand-name {
+        font-size: 13px !important;
+        font-weight: 700 !important;
+        color: #FFFFFF !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+
+    .brand-sub {
+        display: none !important;
+    }
+
+    /* 4. Botón Cerrar sesión visible y destacado (arriba a la derecha) */
+    .sidebar-footer {
+        order: 2 !important;
+        display: flex !important;
+        align-items: center !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        flex-shrink: 0 !important;
+    }
+
+    .sidebar-user {
+        display: none !important;
+    }
+
+    .logout-button {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 6px 12px !important;
+        font-size: 11.5px !important;
+        font-weight: 600 !important;
+        color: #FCA5A5 !important;
+        background: rgba(239, 68, 68, 0.16) !important;
+        border: 1px solid rgba(239, 68, 68, 0.35) !important;
+        border-radius: 8px !important;
+        cursor: pointer !important;
+        white-space: nowrap !important;
+        width: auto !important;
+        transition: all 0.2s ease !important;
+    }
+
+    .logout-button:hover {
+        background: rgba(239, 68, 68, 0.32) !important;
+        color: #FFFFFF !important;
+    }
+
+    /* 5. Pestañas de navegación (fila inferior con desplazamiento táctil) */
+    .nav-label {
+        display: none !important;
+    }
+
+    .nav-list {
+        order: 3 !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 6px !important;
+        margin: 6px 0 0 0 !important;
+        padding: 2px 0 0 0 !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none !important;
+    }
+
+    .nav-list::-webkit-scrollbar {
+        display: none;
+    }
+
+    .nav-item {
+        flex-shrink: 0 !important;
+    }
+
+    .nav-item button {
+        padding: 6px 12px !important;
+        font-size: 12px !important;
+        white-space: nowrap !important;
+    }
+
+    /* 6. Espaciado del contenido inferior */
+    .app-main {
+        margin-left: 0 !important;
+        padding: 16px 14px 40px !important;
+    }
+}
+
+/* ========================================================
+   BARRA SUPERIOR FIJA Y BOTÓN CERRAR SESIÓN EN MÓVILES
+   ======================================================== */
+@media (max-width: 900px) {
+    /* 1. Permitir scroll natural en el cuerpo */
+    html, body, .app-shell {
+        overflow-x: clip !important;
+    }
+
+    body.dashboard-active {
+        overflow: auto !important;
+    }
+
+    .app-shell {
+        flex-direction: column !important;
+    }
+
+    /* 2. Barra fija y visible en el tope de la pantalla */
+    .sidebar {
+        position: sticky !important;
+        top: 0 !important;
+        left: 0 !important;
+        z-index: 1000 !important;
+        width: 100% !important;
+        height: auto !important;
+        background: var(--navy-deep, #071E33) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35) !important;
+        padding: 10px 14px 10px !important;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        overflow: visible !important;
+    }
+
+    body.dark-mode .sidebar {
+        background: #0B132B !important;
+        border-bottom-color: #334155 !important;
+    }
+
+    /* 3. Nombre y logo del consultorio (arriba a la izquierda) */
+    .brand {
+        order: 1 !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border: none !important;
+        flex: 1 !important;
+        min-width: 0 !important;
+    }
+
+    .brand-mark {
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 12px !important;
+        flex-shrink: 0 !important;
+    }
+
+    .brand-name {
+        font-size: 13px !important;
+        font-weight: 700 !important;
+        color: #FFFFFF !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+
+    .brand-sub {
+        display: none !important;
+    }
+
+    /* 4. Botón Cerrar sesión visible y destacado (arriba a la derecha) */
+    .sidebar-footer {
+        order: 2 !important;
+        display: flex !important;
+        align-items: center !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        flex-shrink: 0 !important;
+    }
+
+    .sidebar-user {
+        display: none !important;
+    }
+
+    .logout-button {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 6px 12px !important;
+        font-size: 11.5px !important;
+        font-weight: 600 !important;
+        color: #FCA5A5 !important;
+        background: rgba(239, 68, 68, 0.16) !important;
+        border: 1px solid rgba(239, 68, 68, 0.35) !important;
+        border-radius: 8px !important;
+        cursor: pointer !important;
+        white-space: nowrap !important;
+        width: auto !important;
+        transition: all 0.2s ease !important;
+    }
+
+    .logout-button:hover {
+        background: rgba(239, 68, 68, 0.32) !important;
+        color: #FFFFFF !important;
+    }
+
+    /* 5. Pestañas de navegación (fila inferior con desplazamiento táctil) */
+    .nav-label {
+        display: none !important;
+    }
+
+    .nav-list {
+        order: 3 !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 6px !important;
+        margin: 6px 0 0 0 !important;
+        padding: 2px 0 0 0 !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none !important;
+    }
+
+    .nav-list::-webkit-scrollbar {
+        display: none;
+    }
+
+    .nav-item {
+        flex-shrink: 0 !important;
+    }
+
+    .nav-item button {
+        padding: 6px 12px !important;
+        font-size: 12px !important;
+        white-space: nowrap !important;
+    }
+
+    /* 6. Espaciado del contenido inferior */
+    .app-main {
+        margin-left: 0 !important;
+        padding: 16px 14px 40px !important;
+    }
+}
