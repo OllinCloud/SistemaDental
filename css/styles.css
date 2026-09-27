@@ -3699,3 +3699,65 @@ body.dark-mode .patient-status-row.inactive .patient-status-dot {
         gap: 12px !important;
     }
 }
+
+/* =========================================================
+   AJUSTES: BOTÓN DE TEMA Y BIENVENIDA EN MÓVIL / TABLET
+   ========================================================= */
+
+/* 1. Integración del botón de tema en la barra lateral / superior */
+.sidebar-footer {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+#themeToggle {
+    position: static !important;
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    border-radius: 8px !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+    color: #FFFFFF !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    font-size: 16px !important;
+    box-shadow: none !important;
+    flex-shrink: 0 !important;
+}
+
+#themeToggle:hover {
+    background: rgba(255, 255, 255, 0.16) !important;
+}
+
+body.dark-mode #themeToggle {
+    background: rgba(255, 255, 255, 0.12) !important;
+    border-color: rgba(255, 255, 255, 0.28) !important;
+}
+
+/* 2. En Tablets (641px a 900px): mostrar la bienvenida en la barra superior */
+@media (min-width: 641px) and (max-width: 900px) {
+    .sidebar-user {
+        display: block !important;
+        margin-right: 8px !important;
+    }
+    .sidebar-user p {
+        font-size: 13px !important;
+        color: rgba(255, 255, 255, 0.9) !important;
+        margin: 0 !important;
+        white-space: nowrap !important;
+    }
+}
+
+/* 3. En Celulares (< 640px): mantener la barra limpia con iconos táctiles */
+@media (max-width: 640px) {
+    #themeToggle {
+        width: 34px !important;
+        height: 34px !important;
+        min-width: 34px !important;
+    }
+}
