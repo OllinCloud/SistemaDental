@@ -3450,6 +3450,20 @@ body.dark-mode .patient-list-card:hover {
     box-shadow: var(--shadow-hover) !important;
 }
 
+/* Nombre, detalles y avatar de las tarjetas en modo oscuro */
+body.dark-mode .patient-list-name {
+    color: #F1F5F9 !important;
+}
+body.dark-mode .patient-list-detail-value {
+    color: #CBD5E1 !important;
+}
+body.dark-mode .patient-list-detail-label {
+    color: #94A3B8 !important;
+}
+body.dark-mode .patient-avatar {
+    border-color: #334155 !important;
+}
+
 /* 2. Botones "Regresar" y "Ver ficha" */
 body.dark-mode #backToDashboard,
 body.dark-mode #backToPatientsButton,
