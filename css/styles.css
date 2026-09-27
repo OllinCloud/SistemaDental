@@ -3436,3 +3436,44 @@ body.dark-mode .danger-button:hover {
         padding: 16px 14px 40px !important;
     }
 }
+
+/* ===== Correcciones de modo oscuro ===== */
+
+/* 1. Tarjetas de la lista de pacientes */
+body.dark-mode .patient-list-card {
+    background: var(--card) !important;
+    border-color: var(--line) !important;
+    box-shadow: var(--shadow-card) !important;
+}
+body.dark-mode .patient-list-card:hover {
+    border-color: var(--brand) !important;
+    box-shadow: var(--shadow-hover) !important;
+}
+
+/* 2. Botones "Regresar" y "Ver ficha" */
+body.dark-mode #backToDashboard,
+body.dark-mode #backToPatientsButton,
+body.dark-mode .view-header button.secondary-button,
+body.dark-mode .patients-header button,
+body.dark-mode .view-patient-button {
+    background: var(--card) !important;
+    color: var(--text) !important;
+    border-color: var(--line) !important;
+}
+body.dark-mode #backToDashboard:hover,
+body.dark-mode #backToPatientsButton:hover,
+body.dark-mode .view-header button.secondary-button:hover,
+body.dark-mode .patients-header button:hover,
+body.dark-mode .view-patient-button:hover {
+    background: var(--brand) !important;
+    color: #FFFFFF !important;
+    border-color: var(--brand) !important;
+}
+
+/* 3. Nombre del paciente en la ficha */
+body.dark-mode .fp-patient-name {
+    color: #E2E8F0;
+}
+body.dark-mode .fp-subtitle {
+    color: var(--accent);   /* el teal claro del tema oscuro */
+}
