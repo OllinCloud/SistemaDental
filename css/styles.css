@@ -3765,31 +3765,54 @@ body.dark-mode #themeToggle {
 /* Distribución del pie de la barra lateral en desktop */
 @media (min-width: 901px) {
     .sidebar-footer {
-        display: grid !important;
-        grid-template-columns: 42px minmax(0, 1fr);
-        align-items: center !important;
-        gap: 12px !important;
-        padding-top: 20px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+        margin-top: auto !important;
+        padding-top: 16px !important;
     }
 
     .sidebar-user {
-        grid-column: 1 / -1;
+        width: 100% !important;
         margin: 0 !important;
     }
 
     #themeToggle {
-        width: 42px !important;
-        height: 42px !important;
-        min-width: 42px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        width: 100% !important;
+        min-height: 42px !important;
+        border-radius: 9px !important;
+        font-size: 13.5px !important;
+        font-weight: 500 !important;
+        background: rgba(255, 255, 255, 0.08) !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        color: #ffffff !important;
+        cursor: pointer !important;
+        transition: all 0.2s ease !important;
     }
 
-    .logout-button {
+    #themeToggle:hover {
+        background: rgba(255, 255, 255, 0.16) !important;
+    }
+
+    .sidebar-footer .logout-button {
         width: 100% !important;
-        min-height: 42px;
+        min-height: 42px !important;
+        border-radius: 9px !important;
+        font-size: 13.5px !important;
         margin: 0 !important;
     }
 }
 
+/* En móvil oculta la etiqueta de texto y muestra solo el icono junto al botón de cerrar sesión */
+@media (max-width: 900px) {
+    .theme-toggle-label {
+        display: none;
+    }
+}
 /* Más espacio entre bienvenida y controles en tablets */
 @media (min-width: 641px) and (max-width: 900px) {
     .sidebar-footer {
