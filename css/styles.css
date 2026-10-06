@@ -1438,7 +1438,7 @@ button:active { transform: translateY(1px); }
 .form-section { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 24px; margin-bottom: 18px; }
 .form-section h3 { font-family: var(--font-display); font-weight: 500; margin-top: 0; }
 #editMedicalHistoryForm, #editTreatmentForm { max-width: 100%; }
-#editTreatmentForm { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 28px; }
+#editTreatmentForm { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 28px; }
 .form-group input, .form-group select, .form-group textarea { border-color: rgba(15,42,63,.12); border-radius: 9px; }
 .checkbox-grid label, .checkbox-group label { padding: 10px 12px; border: 1px solid var(--line); border-radius: 9px; background: var(--paper); width: 100%; }
 .checkbox-grid label:has(input:checked), .checkbox-group label:has(input:checked) { background: var(--mint-soft); border-color: var(--brand); }
@@ -1736,7 +1736,7 @@ html, body {
 
 /* 1. Tarjeta contenedora con elevación suave */
 .patient-list-card {
-    background: #FFFFFF !important;
+    background: var(--card) !important;
     border: 1px solid rgba(15, 42, 63, 0.08) !important;
     border-radius: 18px !important;
     padding: 22px !important;
