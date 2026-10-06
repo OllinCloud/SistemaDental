@@ -3881,3 +3881,9 @@ body.dark-mode #themeToggle {
         margin-left: 0 !important;
     }
 }
+
+/* Cerrar sesión: ancho completo del pie del sidebar */
+.sidebar-footer .logout-button {
+    width: 100%;
+    white-space: nowrap;
+}
