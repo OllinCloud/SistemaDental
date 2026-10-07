@@ -1423,7 +1423,7 @@ button:active { transform: translateY(1px); }
 .view-patient-button { border-radius: 9px; }
 
 /* Ficha y formularios */
-.patient-card { border-radius: 14px; padding: 28px; border-left-width: 1px !important; position: relative; overflow: hidden; }
+.patient-card { border-radius: 14px; padding: 28px; position: relative; overflow: hidden; }
 .patient-card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--brand); }
 .patient-card:has(#detailAllergies)::before { background: #C2703D; }
 .patient-card:has(#clinicalNotesContainer)::before { background: #4A5FBF; }
@@ -2111,12 +2111,6 @@ body.dark-mode {
     --danger-border: rgba(248, 113, 113, 0.35);
 }
 
-/* Fondo general */
-body.dark-mode {
-    background: var(--paper);
-    color: var(--text);
-}
-
 /* Áreas principales */
 body.dark-mode .app-main,
 body.dark-mode .dashboard-container,
@@ -2267,6 +2261,7 @@ body.dark-mode textarea {
     background: #22262d;
     border-color: #3a3f47;
     color: #e5e7eb;
+    color-scheme: dark;
 }
 
 body.dark-mode table th,
@@ -2754,7 +2749,7 @@ body.dark-mode .patient-card .section-header p {
 body.dark-mode #clinicalNotesMessage,
 body.dark-mode #treatmentsMessage,
 body.dark-mode #patientDetailMessage {
-    color: #94A3B8 !important;
+    color: var(--text-soft) !important;
 }
 
 /* 2. Tarjetas individuales de Notas Clínicas */
@@ -2908,7 +2903,6 @@ body.dark-mode .form-group textarea {
     border: 1px solid #334155 !important;
     border-radius: 10px !important;
     color: #F8FAFC !important; /* Texto blanco puro al escribir */
-    color-scheme: dark; /* Adapta el ícono del calendario del input date a blanco */
 }
 
 body.dark-mode .patient-card input::placeholder,
