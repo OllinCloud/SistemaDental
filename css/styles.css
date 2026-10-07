@@ -1339,9 +1339,10 @@ button:hover {
    REDISEÑO — EDITORIAL CLINICAL CALM
    ========================================================= */
 :root {
-    --ink: #16242E; --ink-soft: #1A3A52; --navy: #0F2A3F; --navy-deep: #0A1F30;
-    --brand: #1F6B65; --brand-dark: #174F4B; --accent: #8FD6C0; --mint-soft: #C9EDE1;
-    --paper: #EEF4F2; --line: rgba(15, 42, 63, 0.08); --text-soft: #5F717C;
+    --ink: #242424; --ink-soft: #616161; --navy: #0F2A3F; --navy-deep: #0A1F30;
+    --brand: #0F6CBD; --brand-dark: #115EA3; --accent: #479EF5; --mint-soft: #C9EDE1;
+    --paper: #F5F5F5; --card: #FFFFFF; --line: #D1D1D1;
+    --text: #242424; --text-soft: #616161;
     --radius-md: 6px; --radius-lg: 8px;
     --shadow-card: 0 1px 2px rgba(15, 42, 63, 0.04);
     --shadow-hover: 0 12px 28px rgba(15, 42, 63, 0.08);
@@ -2088,15 +2089,18 @@ html, body {
    ========================================================= */
 
 body.dark-mode {
-    --paper: #111827;
-    --card: #1E293B;
-    --line: #334155;
+    --paper: #1F1F1F;
+    --card: #292929;
+    --line: #424242;
 
-    --text: #E2E8F0;
-    --text-soft: #94A3B8;
+    --text: #F5F5F5;
+    --text-soft: #C7C7C7;
 
-    --ink: #E2E8F0;
-    --ink-soft: #CBD5E1;
+    --ink: #F5F5F5;
+    --ink-soft: #C7C7C7;
+    --brand: #479EF5;
+    --brand-dark: #62ABF5;
+    --accent: #479EF5;
 
     --shadow-card: 0 3px 14px rgba(0, 0, 0, 0.25);
     --shadow-hover: 0 14px 30px rgba(0, 0, 0, 0.35);
