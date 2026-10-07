@@ -1525,7 +1525,7 @@ button:active { transform: translateY(1px); }
 
 /* Pacientes */
 .patients-toolbar input { padding: 12px 16px; border-radius: 6px; border-color: var(--line); }
-.patients-toolbar input:focus { box-shadow: 0 0 0 3px rgba(31,107,101,.12); }
+.patients-toolbar input:focus { box-shadow: 0 0 0 3px rgba(15,108,189,.16); }
 .patient-list-card { border-left: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow-card); }
 .patient-list-card:hover { border-left-color: var(--line); }
 .patient-avatar { border-radius: 12px; background: var(--mint-soft); color: var(--brand); font-weight: 600; }
@@ -1550,7 +1550,30 @@ button:active { transform: translateY(1px); }
 .form-section h3 { font-family: var(--font-display); font-weight: 500; margin-top: 0; }
 #editMedicalHistoryForm, #editTreatmentForm { max-width: 100%; }
 #editTreatmentForm { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 28px; }
-.form-group input, .form-group select, .form-group textarea { border-color: rgba(15,42,63,.12); border-radius: 6px; }
+.patient-card input, .patient-card select, .patient-card textarea,
+#newPatientForm input:not([type="checkbox"]), #newPatientForm select, #newPatientForm textarea,
+#editPatientForm input:not([type="checkbox"]), #editPatientForm select, #editPatientForm textarea,
+#editMedicalHistoryForm input:not([type="checkbox"]), #editMedicalHistoryForm select, #editMedicalHistoryForm textarea,
+#editTreatmentForm input:not([type="checkbox"]), #editTreatmentForm select, #editTreatmentForm textarea {
+    border-color: var(--line);
+    border-radius: 6px;
+    background: var(--card);
+    color: var(--text);
+}
+.patient-card input::placeholder, .patient-card textarea::placeholder,
+#newPatientForm input::placeholder, #newPatientForm textarea::placeholder,
+#editPatientForm input::placeholder, #editPatientForm textarea::placeholder,
+#editMedicalHistoryForm input::placeholder, #editMedicalHistoryForm textarea::placeholder,
+#editTreatmentForm input::placeholder, #editTreatmentForm textarea::placeholder { color: var(--text-soft); }
+.patient-card input:focus, .patient-card select:focus, .patient-card textarea:focus,
+#newPatientForm input:focus, #newPatientForm select:focus, #newPatientForm textarea:focus,
+#editPatientForm input:focus, #editPatientForm select:focus, #editPatientForm textarea:focus,
+#editMedicalHistoryForm input:focus, #editMedicalHistoryForm select:focus, #editMedicalHistoryForm textarea:focus,
+#editTreatmentForm input:focus, #editTreatmentForm select:focus, #editTreatmentForm textarea:focus {
+    border-color: var(--brand);
+    box-shadow: 0 0 0 3px rgba(15,108,189,.16);
+    outline-color: var(--brand);
+}
 .checkbox-grid label, .checkbox-group label { padding: 10px 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); width: 100%; }
 .checkbox-grid label:has(input:checked), .checkbox-group label:has(input:checked) { background: var(--mint-soft); border-color: var(--brand); }
 .form-actions { padding-top: 20px; border-top: 1px solid var(--line); }
@@ -1644,8 +1667,8 @@ html, body {
 
 /* 1. Tarjeta contenedora del formulario */
 .patient-card {
-    background: #f8faf9 !important;
-    border: 1px solid rgba(15, 42, 63, 0.08) !important;
+    background: var(--card) !important;
+    border: 1px solid var(--line) !important;
     border-radius: 8px !important;
     box-shadow: 0 4px 16px rgba(15, 42, 63, 0.04) !important;
     padding: 28px !important;
@@ -1653,24 +1676,20 @@ html, body {
 
 /* 2. Etiquetas de los campos */
 .patient-card label {
-    color: #16242e !important;
+    color: var(--text) !important;
     font-size: 13px !important;
     font-weight: 600 !important;
     letter-spacing: 0.01em !important;
 }
 
 /* 3. Inputs, selects y textareas del formulario */
-.patient-card input[type="text"],
-.patient-card input[type="email"],
-.patient-card input[type="tel"],
-.patient-card input[type="date"],
-.patient-card input[type="number"],
+.patient-card input:not([type="checkbox"]),
 .patient-card select,
 .patient-card textarea {
-    background: #ffffff !important;
-    border: 1px solid rgba(31, 107, 101, 0.22) !important;
+    background: var(--card) !important;
+    border: 1px solid var(--line) !important;
     border-radius: 6px !important;
-    color: #0f2a3f !important;
+    color: var(--text) !important;
     font-size: 14px !important;
     padding: 10px 14px !important;
     transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
@@ -1680,19 +1699,19 @@ html, body {
 .patient-card input:focus,
 .patient-card select:focus,
 .patient-card textarea:focus {
-    border-color: #1f6b65 !important;
-    box-shadow: 0 0 0 3px rgba(31, 107, 101, 0.15) !important;
+    border-color: var(--brand) !important;
+    box-shadow: 0 0 0 3px rgba(15, 108, 189, 0.16) !important;
     outline: none !important;
 }
 
 /* 5. Subtítulos de sección dentro del formulario */
 .form-section h3,
 .patient-card h3 {
-    color: #0f2a3f !important;
+    color: var(--text) !important;
     font-family: var(--font-ui) !important;
     font-size: 18px !important;
     font-weight: 600 !important;
-    border-bottom: 1px solid rgba(31, 107, 101, 0.12) !important;
+    border-bottom: 1px solid var(--line) !important;
     padding-bottom: 8px !important;
     margin-bottom: 16px !important;
 }
@@ -1705,7 +1724,7 @@ html, body {
 .patients-header,
 .view-header {
     padding-bottom: 24px !important;
-    border-bottom: 1px solid rgba(31, 107, 101, 0.12) !important;
+    border-bottom: 1px solid var(--line) !important;
     margin-bottom: 28px !important;
 }
 
@@ -1718,7 +1737,7 @@ html, body {
     font-weight: 700 !important;
     letter-spacing: 0.12em !important;
     text-transform: uppercase !important;
-    color: #1f6b65 !important;
+    color: var(--brand) !important;
     margin-bottom: 6px !important;
 }
 
@@ -1731,7 +1750,7 @@ html, body {
     font-weight: 700 !important;
     letter-spacing: 0.12em !important;
     text-transform: uppercase !important;
-    color: #1f6b65 !important;
+    color: var(--brand) !important;
     margin-bottom: 6px !important;
 }
 
@@ -1741,7 +1760,7 @@ html, body {
     font-family: var(--font-ui) !important;
     font-size: 32px !important;
     font-weight: 600 !important;
-    color: #0f2a3f !important;
+    color: var(--text) !important;
     letter-spacing: -0.02em !important;
     line-height: 1.15 !important;
     margin: 0 !important;
@@ -1750,7 +1769,7 @@ html, body {
 /* Subtítulo descriptivo */
 .patients-header p,
 .view-header p {
-    color: #4a6372 !important;
+    color: var(--text-soft) !important;
     font-size: 14.5px !important;
     font-weight: 400 !important;
     margin-top: 8px !important;
@@ -1776,11 +1795,11 @@ html, body {
     justify-content: space-between;
     padding: 22px 26px !important;
     margin-bottom: 24px !important;
-    background: linear-gradient(135deg, #FFFFFF 0%, #F4F8F6 100%) !important;
-    border: 1px solid rgba(13, 68, 44, 0.08) !important;
-    border-left: 4px solid #0D442C !important;
+    background: var(--card) !important;
+    border: 1px solid var(--line) !important;
+    border-left: 4px solid var(--brand) !important;
     border-radius: 8px !important;
-    box-shadow: 0 2px 12px -4px rgba(13, 68, 44, 0.06) !important;
+    box-shadow: var(--shadow-card) !important;
 }
 
 /* 3. Título principal (solo el texto real de tu HTML: Bienvenido, Pacientes, Nuevo paciente) */
@@ -1789,7 +1808,7 @@ html, body {
     font-family: var(--font-ui) !important;
     font-weight: 700 !important;
     font-size: clamp(24px, 3vw, 30px) !important;
-    color: #0D442C !important;
+    color: var(--text) !important;
     letter-spacing: -0.02em !important;
     margin: 0 !important;
     line-height: 1.2 !important;
@@ -1802,7 +1821,7 @@ html, body {
     font-style: italic !important;
     font-weight: 400 !important;
     font-size: 15px !important;
-    color: #216347 !important;
+    color: var(--text-soft) !important;
     margin: 4px 0 0 0 !important;
     letter-spacing: -0.01em !important;
     line-height: 1.35 !important;
@@ -1813,9 +1832,9 @@ html, body {
 .view-header button.secondary-button,
 #backToDashboard,
 #backToPatientsButton {
-    background: #FFFFFF !important;
-    color: #0D442C !important;
-    border: 1px solid rgba(13, 68, 44, 0.22) !important;
+    background: var(--card) !important;
+    color: var(--brand) !important;
+    border: 1px solid var(--line) !important;
     border-radius: 6px !important;
     font-weight: 600 !important;
     font-size: 13.5px !important;
@@ -1827,9 +1846,9 @@ html, body {
 .view-header button.secondary-button:hover,
 #backToDashboard:hover,
 #backToPatientsButton:hover {
-    background: #0D442C !important;
+    background: var(--brand) !important;
     color: #FFFFFF !important;
-    border-color: #0D442C !important;
+    border-color: var(--brand) !important;
 }
 
 /* Desactiva por completo el texto inyectado en los títulos */
@@ -1848,7 +1867,7 @@ html, body {
 /* 1. Tarjeta contenedora con elevación suave */
 .patient-list-card {
     background: var(--card) !important;
-    border: 1px solid rgba(15, 42, 63, 0.08) !important;
+    border: 1px solid var(--line) !important;
     border-radius: 8px !important;
     padding: 22px !important;
     box-shadow: 0 4px 18px -4px rgba(15, 42, 63, 0.05), 0 2px 6px -2px rgba(15, 42, 63, 0.03) !important;
@@ -1858,7 +1877,7 @@ html, body {
 
 .patient-list-card:hover {
     transform: translateY(-3px) !important;
-    border-color: rgba(31, 107, 101, 0.25) !important;
+    border-color: var(--brand) !important;
     box-shadow: 0 12px 28px -6px rgba(15, 42, 63, 0.09) !important;
 }
 
@@ -1876,7 +1895,7 @@ html, body {
     width: 46px !important;
     height: 46px !important;
     border-radius: 50% !important;
-    background: linear-gradient(135deg, #1F6B65 0%, #0D442C 100%) !important;
+    background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%) !important;
     color: #FFFFFF !important;
     font-family: var(--font-ui) !important;
     font-weight: 700 !important;
@@ -1886,8 +1905,8 @@ html, body {
     align-items: center !important;
     justify-content: center !important;
     flex-shrink: 0 !important;
-    border: 2.5px solid #FFFFFF !important;
-    box-shadow: 0 0 0 1.5px rgba(31, 107, 101, 0.25), 0 2px 8px rgba(15, 42, 63, 0.1) !important;
+    border: 2.5px solid var(--card) !important;
+    box-shadow: 0 0 0 1.5px rgba(15, 108, 189, 0.25), 0 2px 8px rgba(0, 0, 0, 0.1) !important;
 }
 
 /* Nombre del paciente: Sans-serif limpio y sólido */
@@ -1895,7 +1914,7 @@ html, body {
     font-family: var(--font-ui) !important;
     font-size: 17px !important;
     font-weight: 600 !important;
-    color: #0F2A3F !important;
+    color: var(--text) !important;
     margin: 0 !important;
     letter-spacing: -0.015em !important;
     line-height: 1.25 !important;
@@ -1950,13 +1969,13 @@ html, body {
     padding: 6px 8px !important;
     border-radius: 8px !important;
     margin-bottom: 6px !important;
-    background: #F8FAF9 !important;
+    background: var(--paper) !important;
 }
 
 .patient-list-detail svg {
     width: 14px !important;
     height: 14px !important;
-    color: #1F6B65 !important;
+    color: var(--brand) !important;
     flex-shrink: 0 !important;
 }
 
@@ -1966,14 +1985,14 @@ html, body {
     font-weight: 700 !important;
     text-transform: uppercase !important;
     letter-spacing: 0.08em !important;
-    color: #728A96 !important;
+    color: var(--text-soft) !important;
     margin-bottom: 1px !important;
 }
 
 .patient-list-detail-value {
     font-size: 13px !important;
     font-weight: 500 !important;
-    color: #16242E !important;
+    color: var(--text) !important;
 }
 
 /* 5. Botón "Ver ficha" estilo clínico */
@@ -1981,9 +2000,9 @@ html, body {
     width: 100% !important;
     margin-top: 14px !important;
     padding: 10px 14px !important;
-    background: #F4F8F6 !important;
-    color: #0D442C !important;
-    border: 1px solid rgba(13, 68, 44, 0.18) !important;
+    background: var(--card) !important;
+    color: var(--brand) !important;
+    border: 1px solid var(--line) !important;
     border-radius: 11px !important;
     font-family: var(--font-ui) !important;
     font-size: 13.5px !important;
@@ -1996,10 +2015,10 @@ html, body {
 }
 
 .view-patient-button:hover {
-    background: #0D442C !important;
+    background: var(--brand) !important;
     color: #FFFFFF !important;
-    border-color: #0D442C !important;
-    box-shadow: 0 4px 12px rgba(13, 68, 44, 0.15) !important;
+    border-color: var(--brand) !important;
+    box-shadow: 0 4px 12px rgba(15, 108, 189, 0.15) !important;
 }
 
 /* =========================================================
@@ -2844,19 +2863,19 @@ body.dark-mode .has-allergy {
 
 /* 1. Contenedores generales de sección */
 body.dark-mode .patient-card {
-    background: #1E293B !important;
-    border-color: #334155 !important;
+    background: var(--card) !important;
+    border-color: var(--line) !important;
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.28) !important;
 }
 
 body.dark-mode .patient-card .section-header h3,
 body.dark-mode .patient-card h3 {
-    color: #F8FAFC !important;
-    border-bottom-color: #334155 !important;
+    color: var(--text) !important;
+    border-bottom-color: var(--line) !important;
 }
 
 body.dark-mode .patient-card .section-header p {
-    color: #94A3B8 !important;
+    color: var(--text-soft) !important;
 }
 
 /* Mensajes de "Cargando..." o "No hay notas/tratamientos" */
@@ -2959,19 +2978,19 @@ body.dark-mode .delete-treatment-button:hover {
 /* 1. Encabezado de la vista (Nuevo paciente / Pacientes) */
 body.dark-mode .view-header,
 body.dark-mode .patients-header {
-    background: #1E293B !important;
-    border: 1px solid #334155 !important;
+    background: var(--card) !important;
+    border: 1px solid var(--line) !important;
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25) !important;
 }
 
 body.dark-mode .view-header h2,
 body.dark-mode .patients-header h2 {
-    color: #F8FAFC !important;
+    color: var(--text) !important;
 }
 
 body.dark-mode .view-header p,
 body.dark-mode .patients-header p {
-    color: #2DD4BF !important; /* Menta suave para el subtítulo en itálica */
+    color: var(--text-soft) !important;
 }
 
 /* Botón Cancelar del encabezado y formularios */
@@ -2981,18 +3000,18 @@ body.dark-mode #cancelNewPatientButtonBottom,
 body.dark-mode #cancelEditPatientButton,
 body.dark-mode #cancelEditMedicalHistoryButton,
 body.dark-mode #cancelEditTreatmentButton {
-    background: #0F172A !important;
-    color: #CBD5E1 !important;
-    border: 1px solid #334155 !important;
+    background: var(--card) !important;
+    color: var(--text) !important;
+    border: 1px solid var(--line) !important;
     border-radius: 6px !important;
 }
 
 body.dark-mode .view-header button:hover,
 body.dark-mode #cancelNewPatientButton:hover,
 body.dark-mode #cancelNewPatientButtonBottom:hover {
-    background: #334155 !important;
+    background: var(--brand) !important;
     color: #FFFFFF !important;
-    border-color: #475569 !important;
+    border-color: var(--brand) !important;
 }
 
 /* 2. Etiquetas de los campos (Nombre *, Apellidos *, etc.) */
@@ -3039,6 +3058,58 @@ body.dark-mode .form-group textarea:focus {
 }
 
 /* 4. Subsección interna de antecedentes (dentro del formulario) */
+body.dark-mode .patient-card input:not([type="checkbox"]),
+body.dark-mode .patient-card select,
+body.dark-mode .patient-card textarea,
+body.dark-mode #newPatientForm input:not([type="checkbox"]),
+body.dark-mode #newPatientForm select,
+body.dark-mode #newPatientForm textarea,
+body.dark-mode #editPatientForm input:not([type="checkbox"]),
+body.dark-mode #editPatientForm select,
+body.dark-mode #editPatientForm textarea,
+body.dark-mode #editMedicalHistoryForm input:not([type="checkbox"]),
+body.dark-mode #editMedicalHistoryForm select,
+body.dark-mode #editMedicalHistoryForm textarea,
+body.dark-mode #editTreatmentForm input:not([type="checkbox"]),
+body.dark-mode #editTreatmentForm select,
+body.dark-mode #editTreatmentForm textarea {
+    background: var(--card) !important;
+    border-color: var(--line) !important;
+    color: var(--text) !important;
+}
+
+body.dark-mode .patient-card input::placeholder,
+body.dark-mode .patient-card textarea::placeholder,
+body.dark-mode #newPatientForm input::placeholder,
+body.dark-mode #newPatientForm textarea::placeholder,
+body.dark-mode #editPatientForm input::placeholder,
+body.dark-mode #editPatientForm textarea::placeholder,
+body.dark-mode #editMedicalHistoryForm input::placeholder,
+body.dark-mode #editMedicalHistoryForm textarea::placeholder,
+body.dark-mode #editTreatmentForm input::placeholder,
+body.dark-mode #editTreatmentForm textarea::placeholder {
+    color: var(--text-soft) !important;
+}
+
+body.dark-mode .patient-card input:focus,
+body.dark-mode .patient-card select:focus,
+body.dark-mode .patient-card textarea:focus,
+body.dark-mode #newPatientForm input:focus,
+body.dark-mode #newPatientForm select:focus,
+body.dark-mode #newPatientForm textarea:focus,
+body.dark-mode #editPatientForm input:focus,
+body.dark-mode #editPatientForm select:focus,
+body.dark-mode #editPatientForm textarea:focus,
+body.dark-mode #editMedicalHistoryForm input:focus,
+body.dark-mode #editMedicalHistoryForm select:focus,
+body.dark-mode #editMedicalHistoryForm textarea:focus,
+body.dark-mode #editTreatmentForm input:focus,
+body.dark-mode #editTreatmentForm select:focus,
+body.dark-mode #editTreatmentForm textarea:focus {
+    border-color: var(--brand) !important;
+    box-shadow: 0 0 0 3px rgba(71, 158, 245, 0.2) !important;
+}
+
 body.dark-mode .form-section {
     background: #151D2A !important;
     border: 1px solid #334155 !important;
@@ -3046,12 +3117,12 @@ body.dark-mode .form-section {
 
 body.dark-mode .form-section h3,
 body.dark-mode .patient-card h3 {
-    color: #F8FAFC !important;
-    border-bottom-color: #334155 !important;
+    color: var(--text) !important;
+    border-bottom-color: var(--line) !important;
 }
 
 body.dark-mode .form-section p {
-    color: #94A3B8 !important;
+    color: var(--text-soft) !important;
 }
 
 /* 5. Cajas de selección (Checkboxes de antecedentes médicos) */
@@ -3560,16 +3631,16 @@ body.dark-mode .patient-list-card:hover {
 
 /* Nombre, detalles y avatar de las tarjetas en modo oscuro */
 body.dark-mode .patient-list-name {
-    color: #F1F5F9 !important;
+    color: var(--text) !important;
 }
 body.dark-mode .patient-list-detail-value {
-    color: #CBD5E1 !important;
+    color: var(--text) !important;
 }
 body.dark-mode .patient-list-detail-label {
-    color: #94A3B8 !important;
+    color: var(--text-soft) !important;
 }
 body.dark-mode .patient-avatar {
-    border-color: #334155 !important;
+    border-color: var(--card) !important;
 }
 
 /* 2. Botones "Regresar" y "Ver ficha" */
@@ -3602,18 +3673,18 @@ body.dark-mode .fp-subtitle {
 
 /* Fondos oscuros para las cajas de datos (Teléfono, Correo) */
 body.dark-mode .patient-list-detail {
-    background: #0F172A !important;
-    border: 1px solid #334155 !important;
+    background: var(--paper) !important;
+    border: 1px solid var(--line) !important;
 }
 
 /* Ícono dentro de la caja de datos */
 body.dark-mode .patient-list-detail svg {
-    color: #2DD4BF !important;
+    color: var(--brand) !important;
 }
 
 /* Línea divisoria de la tarjeta */
 body.dark-mode .patient-list-divider {
-    background: #334155 !important;
+    background: var(--line) !important;
 }
 
 /* Pastilla de estado en modo oscuro */
