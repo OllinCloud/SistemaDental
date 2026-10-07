@@ -1,6 +1,6 @@
 /* =========================================================
    DENTALCORE — SISTEMA DE DISEÑO
-   Paleta: navy/teal/menta · Fraunces (nombres) + Instrument Sans (UI)
+   Paleta: navy/teal/menta · Segoe UI (interfaz)
    ========================================================= */
 
 :root {
@@ -24,16 +24,16 @@
     --danger-bg: #FDECEC;
     --danger-border: #F3C6C2;
 
-    --radius-sm: 7px;
-    --radius-md: 10px;
-    --radius-lg: 14px;
+    --radius-sm: 6px;
+    --radius-md: 6px;
+    --radius-lg: 8px;
     --radius-pill: 100px;
 
     --shadow-card: 0 3px 14px rgba(10, 42, 67, 0.05);
     --shadow-hover: 0 14px 30px rgba(10, 42, 67, 0.09);
 
-    --font-ui: 'Instrument Sans', 'Segoe UI', Arial, sans-serif;
-    --font-display: 'Fraunces', Georgia, serif;
+    --font-ui: "Segoe UI", Inter, system-ui, sans-serif;
+    --font-display: "Segoe UI", Inter, system-ui, sans-serif;
 }
 
 * {
@@ -297,7 +297,7 @@ button:hover {
 .brand-mark {
     width: 34px;
     height: 34px;
-    border-radius: 9px;
+    border-radius: 6px;
     background: var(--accent);
     display: flex;
     align-items: center;
@@ -1342,7 +1342,7 @@ button:hover {
     --ink: #16242E; --ink-soft: #1A3A52; --navy: #0F2A3F; --navy-deep: #0A1F30;
     --brand: #1F6B65; --brand-dark: #174F4B; --accent: #8FD6C0; --mint-soft: #C9EDE1;
     --paper: #EEF4F2; --line: rgba(15, 42, 63, 0.08); --text-soft: #5F717C;
-    --radius-md: 12px; --radius-lg: 16px;
+    --radius-md: 6px; --radius-lg: 8px;
     --shadow-card: 0 1px 2px rgba(15, 42, 63, 0.04);
     --shadow-hover: 0 12px 28px rgba(15, 42, 63, 0.08);
 }
@@ -1353,7 +1353,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 
 /* Login */
 .login-container { background: radial-gradient(circle at 18% 15%, #1A3A52 0%, var(--navy) 50%, var(--navy-deep) 100%); }
-.login-card { max-width: 420px; padding: 40px; border-radius: 18px; }
+.login-card { max-width: 420px; padding: 40px; border-radius: 8px; }
 .login-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 28px;
     font-family: var(--font-display); font-size: 16px; color: var(--ink); }
 .login-card h1 { text-align: left; font-size: 30px; }
@@ -1361,7 +1361,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 .login-card button[type="submit"] { margin-top: 6px; padding: 13px; }
 
 /* Botones */
-button, .primary-button { border-radius: 9px; background: var(--brand); transition: background .15s, transform .15s, box-shadow .15s; }
+button, .primary-button { border-radius: 6px; background: var(--brand); transition: background .15s, transform .15s, box-shadow .15s; }
 button:hover, .primary-button:hover { background: var(--brand-dark); }
 .primary-button { box-shadow: 0 6px 16px -8px rgba(31, 107, 101, .7); }
 button:active { transform: translateY(1px); }
@@ -1369,19 +1369,19 @@ button:active { transform: translateY(1px); }
 /* Sidebar */
 .sidebar { width: 240px; background: var(--navy-deep); padding: 24px 12px; }
 .brand { padding: 0 10px 24px; border-bottom: 1px solid rgba(255,255,255,.06); margin-bottom: 8px; }
-.brand-mark { width: 32px; height: 32px; border-radius: 10px; background: var(--brand); color: var(--accent);
+.brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--brand); color: var(--accent);
     box-shadow: inset 0 0 0 1px rgba(143,214,192,.25); font-size: 18px; }
 .brand-name { font-size: 15px; }
 .brand-sub { font-size: 10px; text-transform: uppercase; letter-spacing: .18em; color: rgba(143,214,192,.6); margin-top: 2px; }
 .nav-label { text-transform: uppercase; letter-spacing: .16em; font-size: 10px; margin: 16px 10px 8px; }
 .nav-list { gap: 2px; }
-.nav-item button { border-radius: 9px; padding: 10px 12px; font-size: 14px; }
+.nav-item button { border-radius: 6px; padding: 10px 12px; font-size: 14px; }
 .nav-item button::before { content: ""; width: 9px; height: 9px; border-radius: 2px; border: 1.5px solid currentColor; opacity: .55; flex-shrink: 0; }
 .nav-item.active button { background: rgba(255,255,255,.08); box-shadow: inset 0 0 0 1px rgba(255,255,255,.1); }
 .nav-item.active button::before { background: var(--accent); border-color: var(--accent); opacity: 1; }
 .nav-item.active::before { display: none; }
 .sidebar-user { background: rgba(255,255,255,.05); box-shadow: inset 0 0 0 1px rgba(255,255,255,.08); padding: 12px; }
-.logout-button { width: 100%; border-radius: 9px; border-color: rgba(255,255,255,.15); }
+.logout-button { width: 100%; border-radius: 6px; border-color: rgba(255,255,255,.15); }
 
 .app-main { padding: 40px 48px 64px; max-width: 1280px; }
 
@@ -1397,7 +1397,7 @@ button:active { transform: translateY(1px); }
     align-items: center;
     min-height: 430px;
 }
-.dashboard-welcome { width: 100%; justify-content: space-between; padding: 56px 60px; border-radius: 22px;
+.dashboard-welcome { width: 100%; justify-content: space-between; padding: 56px 60px; border-radius: 8px;
     background: linear-gradient(118deg, var(--navy) 0%, #113B4C 58%, var(--navy-deep) 100%); border: none; color: #fff;
     box-shadow: 0 28px 56px -30px rgba(10,31,48,.55); position: relative; overflow: hidden; }
 .dashboard-welcome::before { content: ""; position: absolute; left: -120px; bottom: -160px; width: 380px; height: 380px;
@@ -1408,22 +1408,22 @@ button:active { transform: translateY(1px); }
     font-size: 12px; letter-spacing: .18em; }
 .dashboard-welcome-text h2 { color: #fff; font-size: clamp(32px, 4vw, 48px); line-height: 1.04; margin-bottom: 14px; }
 .dashboard-welcome-text p { color: rgba(232,242,239,.78); font-size: 16px; line-height: 1.65; max-width: 46ch; }
-.dashboard-logo { width: 136px; height: 136px; border-radius: 34px; background: rgba(143,214,192,.10);
+.dashboard-logo { width: 136px; height: 136px; border-radius: 8px; background: rgba(143,214,192,.10);
     box-shadow: inset 0 0 0 1px rgba(143,214,192,.28); color: var(--accent); position: relative; z-index: 1; }
 .dashboard-logo svg { width: 80px; height: 80px; }
 
 /* Pacientes */
-.patients-toolbar input { padding: 12px 16px; border-radius: 10px; border-color: var(--line); }
+.patients-toolbar input { padding: 12px 16px; border-radius: 6px; border-color: var(--line); }
 .patients-toolbar input:focus { box-shadow: 0 0 0 3px rgba(31,107,101,.12); }
-.patient-list-card { border-left: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow-card); }
+.patient-list-card { border-left: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow-card); }
 .patient-list-card:hover { border-left-color: var(--line); }
 .patient-avatar { border-radius: 12px; background: var(--mint-soft); color: var(--brand); font-weight: 600; }
 .patient-status-row { display: inline-flex; padding: 3px 8px; border-radius: 6px; background: var(--success-bg); }
 .patient-status-row.inactive { background: rgba(15,42,63,.06); }
-.view-patient-button { border-radius: 9px; }
+.view-patient-button { border-radius: 6px; }
 
 /* Ficha y formularios */
-.patient-card { border-radius: 14px; padding: 28px; position: relative; overflow: hidden; }
+.patient-card { border-radius: 8px; padding: 28px; position: relative; overflow: hidden; }
 .patient-card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--brand); }
 .patient-card:has(#detailAllergies)::before { background: #C2703D; }
 .patient-card:has(#clinicalNotesContainer)::before { background: #4A5FBF; }
@@ -1435,19 +1435,19 @@ button:active { transform: translateY(1px); }
 .patient-data-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 18px 24px; }
 .patient-data-grid span, .clinical-note-section span, .treatment-data-grid span, .patient-notes span {
     text-transform: uppercase; letter-spacing: .1em; font-size: 10.5px; }
-.form-section { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 24px; margin-bottom: 18px; }
+.form-section { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 24px; margin-bottom: 18px; }
 .form-section h3 { font-family: var(--font-display); font-weight: 500; margin-top: 0; }
 #editMedicalHistoryForm, #editTreatmentForm { max-width: 100%; }
-#editTreatmentForm { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 28px; }
-.form-group input, .form-group select, .form-group textarea { border-color: rgba(15,42,63,.12); border-radius: 9px; }
-.checkbox-grid label, .checkbox-group label { padding: 10px 12px; border: 1px solid var(--line); border-radius: 9px; background: var(--paper); width: 100%; }
+#editTreatmentForm { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 28px; }
+.form-group input, .form-group select, .form-group textarea { border-color: rgba(15,42,63,.12); border-radius: 6px; }
+.checkbox-grid label, .checkbox-group label { padding: 10px 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); width: 100%; }
 .checkbox-grid label:has(input:checked), .checkbox-group label:has(input:checked) { background: var(--mint-soft); border-color: var(--brand); }
 .form-actions { padding-top: 20px; border-top: 1px solid var(--line); }
 .form-actions button { width: auto; min-width: 140px; }
-.clinical-note, .treatment-card { background: #fff; border-radius: 12px; }
+.clinical-note, .treatment-card { background: #fff; border-radius: 8px; }
 .treatment-status { padding: 3px 8px; border-radius: 6px; background: rgba(31,107,101,.1); }
 .success-modal { background: rgba(10,31,48,.55); backdrop-filter: blur(4px); }
-.success-modal-content { border-radius: 18px; }
+.success-modal-content { border-radius: 8px; }
 
 @media (max-width: 900px) {
     .sidebar { width: 100%; padding: 12px 14px; }
@@ -1456,7 +1456,7 @@ button:active { transform: translateY(1px); }
     .nav-item button { white-space: nowrap; }
     .app-main { padding: 22px 18px 40px; }
     .dashboard-welcome { padding: 34px 28px; flex-direction: column-reverse; align-items: flex-start; text-align: left; gap: 20px; }
-    .dashboard-logo { width: 104px; height: 104px; border-radius: 26px; }
+    .dashboard-logo { width: 104px; height: 104px; border-radius: 8px; }
     .dashboard-logo svg { width: 60px; height: 60px; }
 }
 
@@ -1500,7 +1500,7 @@ html, body {
 
     .dashboard-welcome {
         padding: 22px 18px !important;
-        border-radius: 18px !important;
+        border-radius: 8px !important;
     }
 
     .dashboard-welcome h2 {
@@ -1527,7 +1527,7 @@ html, body {
 
     .patient-card {
         padding: 16px 12px !important;
-        border-radius: 14px !important;
+        border-radius: 8px !important;
     }
 }
 
@@ -1535,7 +1535,7 @@ html, body {
 .patient-card {
     background: #f8faf9 !important;
     border: 1px solid rgba(15, 42, 63, 0.08) !important;
-    border-radius: 18px !important;
+    border-radius: 8px !important;
     box-shadow: 0 4px 16px rgba(15, 42, 63, 0.04) !important;
     padding: 28px !important;
 }
@@ -1558,7 +1558,7 @@ html, body {
 .patient-card textarea {
     background: #ffffff !important;
     border: 1px solid rgba(31, 107, 101, 0.22) !important;
-    border-radius: 10px !important;
+    border-radius: 6px !important;
     color: #0f2a3f !important;
     font-size: 14px !important;
     padding: 10px 14px !important;
@@ -1578,7 +1578,7 @@ html, body {
 .form-section h3,
 .patient-card h3 {
     color: #0f2a3f !important;
-    font-family: 'Fraunces', serif !important;
+    font-family: var(--font-ui) !important;
     font-size: 18px !important;
     font-weight: 600 !important;
     border-bottom: 1px solid rgba(31, 107, 101, 0.12) !important;
@@ -1602,7 +1602,7 @@ html, body {
 .patients-header h2::before {
     content: "EXPEDIENTES CLÍNICOS";
     display: block;
-    font-family: 'Instrument Sans', system-ui, sans-serif !important;
+    font-family: var(--font-ui) !important;
     font-size: 11px !important;
     font-weight: 700 !important;
     letter-spacing: 0.12em !important;
@@ -1615,7 +1615,7 @@ html, body {
 .view-header h2::before {
     content: "REGISTRO DE PACIENTE";
     display: block;
-    font-family: 'Instrument Sans', system-ui, sans-serif !important;
+    font-family: var(--font-ui) !important;
     font-size: 11px !important;
     font-weight: 700 !important;
     letter-spacing: 0.12em !important;
@@ -1627,7 +1627,7 @@ html, body {
 /* Título principal */
 .patients-header h2,
 .view-header h2 {
-    font-family: 'Fraunces', serif !important;
+    font-family: var(--font-ui) !important;
     font-size: 32px !important;
     font-weight: 600 !important;
     color: #0f2a3f !important;
@@ -1668,14 +1668,14 @@ html, body {
     background: linear-gradient(135deg, #FFFFFF 0%, #F4F8F6 100%) !important;
     border: 1px solid rgba(13, 68, 44, 0.08) !important;
     border-left: 4px solid #0D442C !important;
-    border-radius: 14px !important;
+    border-radius: 8px !important;
     box-shadow: 0 2px 12px -4px rgba(13, 68, 44, 0.06) !important;
 }
 
 /* 3. Título principal (solo el texto real de tu HTML: Bienvenido, Pacientes, Nuevo paciente) */
 .patients-header h2,
 .view-header h2 {
-    font-family: 'Instrument Sans', system-ui, -apple-system, sans-serif !important;
+    font-family: var(--font-ui) !important;
     font-weight: 700 !important;
     font-size: clamp(24px, 3vw, 30px) !important;
     color: #0D442C !important;
@@ -1687,7 +1687,7 @@ html, body {
 /* 4. Subtítulo original en itálica elegante */
 .patients-header p,
 .view-header p {
-    font-family: 'Fraunces', Georgia, serif !important;
+    font-family: var(--font-ui) !important;
     font-style: italic !important;
     font-weight: 400 !important;
     font-size: 15px !important;
@@ -1705,7 +1705,7 @@ html, body {
     background: #FFFFFF !important;
     color: #0D442C !important;
     border: 1px solid rgba(13, 68, 44, 0.22) !important;
-    border-radius: 10px !important;
+    border-radius: 6px !important;
     font-weight: 600 !important;
     font-size: 13.5px !important;
     padding: 9px 16px !important;
@@ -1738,7 +1738,7 @@ html, body {
 .patient-list-card {
     background: var(--card) !important;
     border: 1px solid rgba(15, 42, 63, 0.08) !important;
-    border-radius: 18px !important;
+    border-radius: 8px !important;
     padding: 22px !important;
     box-shadow: 0 4px 18px -4px rgba(15, 42, 63, 0.05), 0 2px 6px -2px rgba(15, 42, 63, 0.03) !important;
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease !important;
@@ -1767,7 +1767,7 @@ html, body {
     border-radius: 50% !important;
     background: linear-gradient(135deg, #1F6B65 0%, #0D442C 100%) !important;
     color: #FFFFFF !important;
-    font-family: 'Instrument Sans', system-ui, sans-serif !important;
+    font-family: var(--font-ui) !important;
     font-weight: 700 !important;
     font-size: 15px !important;
     letter-spacing: 0.02em !important;
@@ -1781,7 +1781,7 @@ html, body {
 
 /* Nombre del paciente: Sans-serif limpio y sólido */
 .patient-list-name {
-    font-family: 'Instrument Sans', system-ui, sans-serif !important;
+    font-family: var(--font-ui) !important;
     font-size: 17px !important;
     font-weight: 600 !important;
     color: #0F2A3F !important;
@@ -1850,7 +1850,7 @@ html, body {
 }
 
 .patient-list-detail-label {
-    font-family: 'Instrument Sans', sans-serif !important;
+    font-family: var(--font-ui) !important;
     font-size: 9.5px !important;
     font-weight: 700 !important;
     text-transform: uppercase !important;
@@ -1874,7 +1874,7 @@ html, body {
     color: #0D442C !important;
     border: 1px solid rgba(13, 68, 44, 0.18) !important;
     border-radius: 11px !important;
-    font-family: 'Instrument Sans', sans-serif !important;
+    font-family: var(--font-ui) !important;
     font-size: 13.5px !important;
     font-weight: 600 !important;
     cursor: pointer !important;
@@ -1958,7 +1958,7 @@ html, body {
 
     width: 44px !important;
     height: 44px !important;
-    border-radius: 12px !important;
+    border-radius: 8px !important;
     border: 1.5px solid rgba(255, 255, 255, 0.22) !important;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
 
@@ -1984,7 +1984,7 @@ html, body {
     content: "Dr. Pedro Barrera" !important;
     font-size: 16px !important;
     font-weight: 700 !important;
-    font-family: 'Instrument Sans', system-ui, sans-serif !important;
+    font-family: var(--font-ui) !important;
     color: #FFFFFF !important;
     display: block !important;
     letter-spacing: -0.01em !important;
@@ -1999,7 +1999,7 @@ html, body {
     content: "ODONTOLOGÍA" !important;
     font-size: 10px !important;
     font-weight: 700 !important;
-    font-family: 'Instrument Sans', system-ui, sans-serif !important;
+    font-family: var(--font-ui) !important;
     letter-spacing: 0.12em !important;
     color: #8FD6C0 !important;            /* Menta suave */
     display: block !important;
@@ -2067,7 +2067,7 @@ html, body {
     width: 40px;
     height: 40px;
     border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 10px;
+    border-radius: 6px;
     background: rgba(255, 255, 255, 0.08);
     cursor: pointer;
     font-size: 19px;
@@ -2170,7 +2170,7 @@ body.dark-mode .patients-toolbar input {
     height: 40px;
 
     border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 10px;
+    border-radius: 6px;
 
     background: rgba(255, 255, 255, 0.08);
     color: inherit;
@@ -2363,7 +2363,7 @@ body.dark-mode table td {
 .editorial-chart .ec-card {
     background: #FFFFFF !important;
     border: 1px solid rgba(14, 110, 119, 0.15) !important;
-    border-radius: 16px !important;
+    border-radius: 8px !important;
     box-shadow: 0 4px 20px rgba(10, 42, 67, 0.04) !important;
     padding: 0 !important;
     overflow: hidden !important;
@@ -2477,7 +2477,7 @@ body.dark-mode table td {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: 'Inter Tight', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-ui);
   font-size: 14px;
   font-weight: 500;
   color: #64748b;
@@ -2503,7 +2503,7 @@ body.dark-mode table td {
 
 /* Nombre en negrita, sans-serif y verde oscuro profundo */
 .fp-patient-name {
-  font-family: 'Inter Tight', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-ui);
   font-size: 42px;
   font-weight: 800;
   letter-spacing: -0.03em;
@@ -2514,7 +2514,7 @@ body.dark-mode table td {
 
 /* Subtítulo "Ficha del paciente" en serif cursiva y tono teal */
 .fp-subtitle {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-ui);
   font-size: 26px;
   font-style: italic;
   font-weight: 400;
@@ -2757,7 +2757,7 @@ body.dark-mode .clinical-note {
     background: #151D2A !important;
     border: 1px solid #334155 !important;
     border-left: 3px solid #818CF8 !important; /* Acento índigo legible */
-    border-radius: 12px !important;
+    border-radius: 8px !important;
 }
 
 body.dark-mode .clinical-note-header {
@@ -2778,7 +2778,7 @@ body.dark-mode .treatment-card {
     background: #151D2A !important;
     border: 1px solid #334155 !important;
     border-left: 3px solid #2DD4BF !important; /* Acento menta/teal */
-    border-radius: 12px !important;
+    border-radius: 8px !important;
 }
 
 body.dark-mode .treatment-header {
@@ -2870,7 +2870,7 @@ body.dark-mode #cancelEditTreatmentButton {
     background: #0F172A !important;
     color: #CBD5E1 !important;
     border: 1px solid #334155 !important;
-    border-radius: 9px !important;
+    border-radius: 6px !important;
 }
 
 body.dark-mode .view-header button:hover,
@@ -2901,7 +2901,7 @@ body.dark-mode .form-group select,
 body.dark-mode .form-group textarea {
     background: #0F172A !important; /* Fondo azul noche oscuro */
     border: 1px solid #334155 !important;
-    border-radius: 10px !important;
+    border-radius: 6px !important;
     color: #F8FAFC !important; /* Texto blanco puro al escribir */
 }
 
@@ -3009,7 +3009,7 @@ body.dashboard-active {
     width: 100%;
     max-width: 440px;
     padding: 32px 28px;
-    border-radius: 18px;
+    border-radius: 8px;
     text-align: center;
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
     border: 1px solid rgba(0, 0, 0, 0.06);
@@ -3042,7 +3042,7 @@ body.dashboard-active {
 
 .confirm-modal-title {
     margin: 0 0 10px 0;
-    font-family: var(--font-display, inherit);
+    font-family: var(--font-ui);
     font-size: 22px;
     font-weight: 700;
     color: #0F2A3F;
@@ -3066,7 +3066,7 @@ body.dashboard-active {
     padding: 11px 18px;
     font-size: 14px;
     font-weight: 600;
-    border-radius: 10px;
+    border-radius: 6px;
     cursor: pointer;
     transition: all 0.15s ease;
 }
@@ -3778,7 +3778,7 @@ body.dark-mode #themeToggle {
         gap: 8px !important;
         width: 100% !important;
         min-height: 42px !important;
-        border-radius: 9px !important;
+        border-radius: 6px !important;
         font-size: 13.5px !important;
         font-weight: 500 !important;
         background: rgba(255, 255, 255, 0.08) !important;
@@ -3795,7 +3795,7 @@ body.dark-mode #themeToggle {
     .sidebar-footer .logout-button {
         width: 100% !important;
         min-height: 42px !important;
-        border-radius: 9px !important;
+        border-radius: 6px !important;
         font-size: 13.5px !important;
         margin: 0 !important;
     }
