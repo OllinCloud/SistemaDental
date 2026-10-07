@@ -1353,13 +1353,123 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 }
 
 /* Login */
-.login-container { background: radial-gradient(circle at 18% 15%, #1A3A52 0%, var(--navy) 50%, var(--navy-deep) 100%); }
-.login-card { max-width: 420px; padding: 40px; border-radius: 8px; }
-.login-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 28px;
-    font-family: var(--font-display); font-size: 16px; color: var(--ink); }
-.login-card h1 { text-align: left; font-size: 30px; }
-.login-card .subtitle { text-align: left; line-height: 1.5; margin: 0 0 28px; }
-.login-card button[type="submit"] { margin-top: 6px; padding: 13px; }
+#loginView {
+    background: var(--paper);
+}
+
+#loginView .login-card {
+    max-width: 420px;
+    padding: 40px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+#loginView .login-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+    font-family: var(--font-ui);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+#loginView .brand-mark {
+    background: #0F6CBD;
+    color: #FFFFFF;
+    box-shadow: none;
+}
+
+body.dark-mode #loginView .brand-mark {
+    background: #479EF5;
+    color: #1F1F1F;
+}
+
+#loginView .login-card h1 {
+    text-align: left;
+    font-family: "Segoe UI", Inter, system-ui, sans-serif;
+    font-size: 30px;
+}
+
+#loginView .login-card .subtitle {
+    text-align: left;
+    line-height: 1.5;
+    margin: 0 0 28px;
+    color: var(--text-soft);
+}
+
+#loginView .form-group label {
+    color: var(--text);
+}
+
+#loginView .form-group input {
+    height: 44px;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--card);
+    color: var(--text);
+}
+
+#loginView .form-group input::placeholder {
+    color: var(--text-soft);
+}
+
+#loginView .form-group input:focus {
+    outline: none;
+    border-color: var(--brand);
+    box-shadow: none;
+}
+
+#loginView .form-group input:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 2px;
+}
+
+#loginView .login-card button[type="submit"] {
+    height: 44px;
+    margin-top: 6px;
+    padding: 0 13px;
+    border-radius: 6px;
+    background: var(--brand);
+    color: #FFFFFF;
+}
+
+#loginView .login-card button[type="submit"]:hover {
+    background: var(--brand-dark);
+}
+
+#loginView .login-card button[type="submit"]:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 3px;
+}
+
+#loginView .login-card button[type="submit"]:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#loginView .login-card button[type="submit"]:disabled:hover {
+    background: var(--brand);
+}
+
+#loginView #loginMessage {
+    margin: 14px 0 0;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--paper);
+    color: var(--text-soft);
+    font-size: 13.5px;
+    line-height: 1.4;
+}
+
+#loginView #loginMessage:empty {
+    display: none;
+}
 
 /* Botones */
 button, .primary-button { border-radius: 6px; background: var(--brand); transition: background .15s, transform .15s, box-shadow .15s; }
