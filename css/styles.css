@@ -2442,6 +2442,14 @@ body.dark-mode table td {
     flex-shrink: 0;
 }
 
+#themeIcon .theme-icon-sun {
+    color: #e6c66a;
+}
+
+#themeIcon .theme-icon-moon {
+    color: #c6def7;
+}
+
 /* ========================================================
    DISEÑO EDITORIAL CLÍNICO: FICHA DEL PACIENTE
    ======================================================== */
