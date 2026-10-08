@@ -109,6 +109,10 @@ if (editMedicalHistoryButton) {
 
         patientDetailView.classList.add('hidden');
         editMedicalHistoryView.classList.remove('hidden');
+        editMedicalHistoryView.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
 
     });
 

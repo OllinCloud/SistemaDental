@@ -497,6 +497,10 @@ if (editPatientButton) {
 
         patientDetailView.classList.add('hidden');
         editPatientView.classList.remove('hidden');
+        editPatientView.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
 
     });
 }

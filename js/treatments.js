@@ -55,6 +55,10 @@ if (newTreatmentButton) {
 
             patientDetailView.classList.add('hidden');
             newTreatmentView.classList.remove('hidden');
+            newTreatmentView.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
 
             setTodayDate(treatmentStartDate);
 

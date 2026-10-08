@@ -37,6 +37,10 @@ if (newClinicalNoteButton) {
 
             patientDetailView.classList.add('hidden');
             newClinicalNoteView.classList.remove('hidden');
+            newClinicalNoteView.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
 
             setTodayDate(clinicalNoteDate);
 
