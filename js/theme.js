@@ -63,5 +63,9 @@ document.addEventListener("click", function (event) {
 // 4) Actualiza solo el ícono del botón (sin etiqueta de texto)
 function actualizarBoton(esOscuro) {
     const icon = document.getElementById("themeIcon");
-    if (icon) icon.textContent = esOscuro ? "☀️" : "🌙";
+    if (icon) {
+        icon.innerHTML = esOscuro
+            ? '<svg viewBox="0 0 20 20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="3.25" /><path d="M10 2v1.5m0 13V18m8-8h-1.5m-13 0H2m13.66-5.66-1.06 1.06M5.4 14.6l-1.06 1.06m11.32 0-1.06-1.06M5.4 5.4 4.34 4.34" /></svg>'
+            : '<svg viewBox="0 0 20 20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16.15 12.05A6.5 6.5 0 0 1 7.95 3.85a6.5 6.5 0 1 0 8.2 8.2Z" /></svg>';
+    }
 }
