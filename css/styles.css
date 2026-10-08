@@ -356,6 +356,14 @@ button:hover {
     transition: background 0.15s ease, color 0.15s ease;
 }
 
+.nav-item button > svg {
+    display: block;
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
+    color: currentColor;
+}
+
 .nav-item button:hover,
 .nav-item a:hover {
     background: rgba(255, 255, 255, 0.06);
@@ -1487,10 +1495,7 @@ button:active { transform: translateY(1px); }
 .nav-label { text-transform: uppercase; letter-spacing: .16em; font-size: 10px; margin: 16px 10px 8px; }
 .nav-list { gap: 2px; }
 .nav-item button { border-radius: 6px; padding: 10px 12px; font-size: 14px; }
-.nav-item button::before { content: ""; width: 9px; height: 9px; border-radius: 2px; border: 1.5px solid currentColor; opacity: .55; flex-shrink: 0; }
 .nav-item.active button { background: rgba(255,255,255,.08); box-shadow: inset 0 0 0 1px rgba(255,255,255,.1); }
-.nav-item.active button::before { background: var(--accent); border-color: var(--accent); opacity: 1; }
-.nav-item.active::before { display: none; }
 .sidebar-user { background: rgba(255,255,255,.05); box-shadow: inset 0 0 0 1px rgba(255,255,255,.08); padding: 12px; }
 .logout-button { width: 100%; border-radius: 6px; border-color: rgba(255,255,255,.15); }
 
@@ -2420,6 +2425,21 @@ body.dark-mode table td {
     top: 20px;
     right: 20px;
     z-index: 10;
+}
+
+#themeIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+}
+
+#themeIcon svg {
+    display: block;
+    width: 20px;
+    height: 20px;
+    color: currentColor;
+    flex-shrink: 0;
 }
 
 /* ========================================================
