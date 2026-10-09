@@ -111,6 +111,14 @@ newPatientForm.addEventListener(
                 .value
                 .trim();
 
+        if (!birthDate || !phone) {
+
+            newPatientMessage.textContent =
+                'Fecha de nacimiento y teléfono son obligatorios.';
+
+            return;
+        }
+
         const email =
             document.getElementById('newEmail')
                 .value
