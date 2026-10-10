@@ -450,8 +450,12 @@ async function loadPatientEditForm(patientId) {
     document.getElementById('editGender').value =
         genderMap[data.gender] || '';
 
+    editPatientPhoneError.textContent = '';
+    editPatientPhoneError.hidden = true;
+    editPatientPhoneInput.removeAttribute('aria-invalid');
+
     document.getElementById('editPhone').value =
-        data.phone || '';
+        MexicanPhone.format(data.phone || '');
 
     document.getElementById('editEmail').value =
         data.email || '';
@@ -505,6 +509,18 @@ if (editPatientButton) {
     });
 }
 
+const editPatientPhoneInput = document.getElementById('editPhone');
+MexicanPhone.attach(editPatientPhoneInput);
+const editPatientPhoneError = document.getElementById('editPhoneError');
+
+editPatientPhoneInput.addEventListener('input', function () {
+    if (!MexicanPhone.isValid(editPatientPhoneInput)) return;
+
+    editPatientPhoneError.textContent = '';
+    editPatientPhoneError.hidden = true;
+    editPatientPhoneInput.removeAttribute('aria-invalid');
+});
+
 
 if (editPatientForm) {
 
@@ -524,8 +540,8 @@ if (editPatientForm) {
         const gender =
             document.getElementById('editGender').value;
 
-        const phone =
-            document.getElementById('editPhone').value.trim();
+        const phoneInput = editPatientPhoneInput;
+        const phone = MexicanPhone.normalize(phoneInput.value);
 
         const email =
             document.getElementById('editEmail').value.trim();
@@ -544,6 +560,21 @@ if (editPatientForm) {
 
         const message =
             document.getElementById('editPatientMessage');
+
+        if (!MexicanPhone.isValid(phoneInput)) {
+            message.textContent = '';
+            editPatientPhoneError.textContent =
+                'Ingresa un teléfono válido de 10 dígitos, sin lada internacional';
+            editPatientPhoneError.hidden = false;
+            phoneInput.setAttribute('aria-invalid', 'true');
+            phoneInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            phoneInput.focus({ preventScroll: true });
+            return;
+        }
+
+        editPatientPhoneError.textContent = '';
+        editPatientPhoneError.hidden = true;
+        phoneInput.removeAttribute('aria-invalid');
 
         message.textContent = 'Guardando cambios...';
 

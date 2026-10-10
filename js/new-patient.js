@@ -29,6 +29,9 @@
 let newPatientOrigin = '';
 let newPatientSubmissionLocked = false;
 
+const newPatientPhoneInput = document.getElementById('newPhone');
+MexicanPhone.attach(newPatientPhoneInput);
+
 
 function normalizePatientName(value) {
 
@@ -209,12 +212,10 @@ newPatientForm.addEventListener(
         const gender =
             document.getElementById('newGender').value;
 
-        const phone =
-            document.getElementById('newPhone')
-                .value
-                .trim();
+        const phoneInput = newPatientPhoneInput;
+        const phone = MexicanPhone.normalize(phoneInput.value);
 
-        if (!birthDate || !phone) {
+        if (!birthDate) {
 
             newPatientMessage.textContent =
                 'Fecha de nacimiento y teléfono son obligatorios.';
@@ -335,6 +336,15 @@ newPatientForm.addEventListener(
         } catch (duplicateSearchError) {
             console.error('Error al buscar posibles pacientes duplicados:', duplicateSearchError);
             newPatientMessage.textContent = 'No se pudo comprobar si ya existe un paciente con ese nombre. Inténtalo de nuevo.';
+            unlockSubmission();
+            return;
+        }
+
+        if (
+            !MexicanPhone.isValid(phoneInput)
+        ) {
+            newPatientMessage.textContent =
+                'Ingresa un teléfono válido de 10 dígitos, sin lada internacional';
             unlockSubmission();
             return;
         }
