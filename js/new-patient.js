@@ -31,6 +31,17 @@ let newPatientSubmissionLocked = false;
 
 const newPatientPhoneInput = document.getElementById('newPhone');
 MexicanPhone.attach(newPatientPhoneInput);
+const newPatientValidationRules = [
+    { id: 'newFirstName', errorId: 'newFirstNameError', check: PersonalDataValidation.nameCheck, message: 'Escribe un nombre válido; usa solo letras, espacios, guiones o apóstrofes.' },
+    { id: 'newLastName', errorId: 'newLastNameError', check: PersonalDataValidation.nameCheck, message: 'Escribe apellidos válidos; usa solo letras, espacios, guiones o apóstrofes.' },
+    { id: 'newBirthDate', errorId: 'newBirthDateError', check: PersonalDataValidation.birthDateCheck, message: 'Ingresa una fecha válida que no sea posterior al día de hoy.' },
+    { id: 'newPhone', errorId: 'newPhoneError', check: PersonalDataValidation.phoneCheck, message: 'Ingresa un teléfono válido de 10 dígitos, sin lada internacional.' },
+    { id: 'newEmail', errorId: 'newEmailError', required: false, check: PersonalDataValidation.emailCheck, message: 'Ingresa un correo electrónico válido o deja el campo vacío.' },
+    { id: 'newEmergencyPhone', errorId: 'newEmergencyPhoneError', required: false, check: PersonalDataValidation.emergencyPhoneCheck, message: 'Ingresa un teléfono de emergencia válido de 10 dígitos o deja el campo vacío.' },
+    { id: 'newAddress', trim: true },
+    { id: 'newEmergencyContact', trim: true }
+];
+PersonalDataValidation.bind(newPatientForm, newPatientValidationRules);
 
 
 function normalizePatientName(value) {
@@ -136,6 +147,7 @@ function closeNewPatientView() {
     }
 
     newPatientForm.reset();
+    PersonalDataValidation.clear(newPatientForm, newPatientValidationRules);
     newPatientMessage.textContent = '';
 }
 
@@ -157,6 +169,11 @@ newPatientForm.addEventListener(
     async function (event) {
 
         event.preventDefault();
+
+        if (!PersonalDataValidation.validate(newPatientForm, newPatientValidationRules)) {
+            newPatientMessage.textContent = '';
+            return;
+        }
 
         if (newPatientSubmissionLocked) return;
         newPatientSubmissionLocked = true;
@@ -196,16 +213,6 @@ newPatientForm.addEventListener(
                 .value
                 .trim();
 
-        if (!firstName || !lastName) {
-
-            newPatientMessage.textContent =
-                'Nombre y apellidos son obligatorios.';
-
-            unlockSubmission();
-
-            return;
-        }
-
         const birthDate =
             document.getElementById('newBirthDate').value;
 
@@ -214,16 +221,6 @@ newPatientForm.addEventListener(
 
         const phoneInput = newPatientPhoneInput;
         const phone = MexicanPhone.normalize(phoneInput.value);
-
-        if (!birthDate) {
-
-            newPatientMessage.textContent =
-                'Fecha de nacimiento y teléfono son obligatorios.';
-
-            unlockSubmission();
-
-            return;
-        }
 
         const email =
             document.getElementById('newEmail')
@@ -336,15 +333,6 @@ newPatientForm.addEventListener(
         } catch (duplicateSearchError) {
             console.error('Error al buscar posibles pacientes duplicados:', duplicateSearchError);
             newPatientMessage.textContent = 'No se pudo comprobar si ya existe un paciente con ese nombre. Inténtalo de nuevo.';
-            unlockSubmission();
-            return;
-        }
-
-        if (
-            !MexicanPhone.isValid(phoneInput)
-        ) {
-            newPatientMessage.textContent =
-                'Ingresa un teléfono válido de 10 dígitos, sin lada internacional';
             unlockSubmission();
             return;
         }

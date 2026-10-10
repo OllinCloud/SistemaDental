@@ -429,6 +429,8 @@ async function loadPatientEditForm(patientId) {
         return;
     }
 
+    PersonalDataValidation.clear(editPatientForm, editPatientValidationRules);
+
     document.getElementById('editFirstName').value =
         data.first_name || '';
 
@@ -459,6 +461,7 @@ async function loadPatientEditForm(patientId) {
 
     document.getElementById('editEmail').value =
         data.email || '';
+    PersonalDataValidation.refresh(editPatientForm, editPatientValidationRules);
 
     document.getElementById('editAddress').value =
         data.address || '';
@@ -512,6 +515,17 @@ if (editPatientButton) {
 const editPatientPhoneInput = document.getElementById('editPhone');
 MexicanPhone.attach(editPatientPhoneInput);
 const editPatientPhoneError = document.getElementById('editPhoneError');
+const editPatientValidationRules = [
+    { id: 'editFirstName', errorId: 'editFirstNameError', check: PersonalDataValidation.nameCheck, message: 'Escribe un nombre válido; usa solo letras, espacios, guiones o apóstrofes.' },
+    { id: 'editLastName', errorId: 'editLastNameError', check: PersonalDataValidation.nameCheck, message: 'Escribe apellidos válidos; usa solo letras, espacios, guiones o apóstrofes.' },
+    { id: 'editBirthDate', errorId: 'editBirthDateError', check: PersonalDataValidation.birthDateCheck, message: 'Ingresa una fecha válida que no sea posterior al día de hoy.' },
+    { id: 'editPhone', errorId: 'editPhoneError', check: PersonalDataValidation.phoneCheck, message: 'Ingresa un teléfono válido de 10 dígitos, sin lada internacional.' },
+    { id: 'editEmail', errorId: 'editEmailError', required: false, check: PersonalDataValidation.emailCheck, message: 'Ingresa un correo electrónico válido o deja el campo vacío.' },
+    { id: 'editEmergencyPhone', errorId: 'editEmergencyPhoneError', required: false, check: PersonalDataValidation.emergencyPhoneCheck, message: 'Ingresa un teléfono de emergencia válido de 10 dígitos o deja el campo vacío.' },
+    { id: 'editAddress', trim: true },
+    { id: 'editEmergencyContact', trim: true }
+];
+PersonalDataValidation.bind(editPatientForm, editPatientValidationRules);
 
 editPatientPhoneInput.addEventListener('input', function () {
     if (!MexicanPhone.isValid(editPatientPhoneInput)) return;
@@ -527,6 +541,11 @@ if (editPatientForm) {
     editPatientForm.addEventListener('submit', async function (event) {
 
         event.preventDefault();
+
+        if (!PersonalDataValidation.validate(editPatientForm, editPatientValidationRules)) {
+            document.getElementById('editPatientMessage').textContent = '';
+            return;
+        }
 
         const firstName =
             document.getElementById('editFirstName').value.trim();
