@@ -2859,6 +2859,42 @@ body.dark-mode .secondary-button.ec-action-btn:hover {
     border-color: var(--brand) !important;
 }
 
+/* Acción destructiva secundaria en la ficha del paciente */
+.editorial-chart .secondary-button.delete-patient-button {
+    gap: 8px;
+    padding-right: 7px;
+    padding-left: 7px;
+    background: #FFFFFF;
+    border-color: rgba(11, 97, 118, 0.35);
+    color: #0B6176;
+}
+
+.editorial-chart .delete-patient-icon {
+    display: block;
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+}
+
+.editorial-chart .secondary-button.delete-patient-button:hover {
+    background: #EAF8F7;
+    border-color: #1BC0B5;
+    color: #0B6176;
+    box-shadow: 0 3px 8px rgba(11, 97, 118, 0.12);
+}
+
+body.dark-mode .editorial-chart .secondary-button.delete-patient-button {
+    background: #0F172A !important;
+    border-color: rgba(27, 192, 181, 0.45) !important;
+    color: #D8F3F0 !important;
+}
+
+body.dark-mode .editorial-chart .secondary-button.delete-patient-button:hover {
+    background: #173548 !important;
+    border-color: #1BC0B5 !important;
+    color: #FFFFFF !important;
+}
+
 /* Cuadrícula de datos: líneas divisorias oscuras */
 body.dark-mode .editorial-chart .ec-grid {
     background: #334155 !important;

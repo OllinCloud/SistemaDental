@@ -316,6 +316,12 @@
                 <button type="button" id="editPatientButton" class="secondary-button ec-action-btn">
                     Editar datos personales
                 </button>
+                <button type="button" id="deletePatientButton" class="secondary-button ec-action-btn delete-patient-button" aria-label="Eliminar paciente">
+                    <svg class="delete-patient-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+                        <path d="M4.5 7.5h15M9 7.5V5.25A1.25 1.25 0 0 1 10.25 4h3.5A1.25 1.25 0 0 1 15 5.25V7.5" stroke="#1BC0B5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="m6.5 7.5.8 11.05A1.55 1.55 0 0 0 8.85 20h6.3a1.55 1.55 0 0 0 1.55-1.45L17.5 7.5M10 10.5v6.25M14 10.5v6.25" stroke="#0B6176" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </button>
             </div>
 
             <div class="ec-grid">
@@ -1699,6 +1705,46 @@
         </div>
     </div>
 
+    <div
+        id="deletePatientConfirmModal"
+        class="confirm-modal hidden"
+        role="alertdialog"
+        aria-modal="true"
+        aria-labelledby="deletePatientConfirmTitle"
+        aria-describedby="deletePatientConfirmText"
+    >
+        <div class="confirm-modal-content">
+            <div class="confirm-modal-icon warning-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                    <line x1="12" y1="9" x2="12" y2="13"></line>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+            </div>
+
+            <h3 class="confirm-modal-title" id="deletePatientConfirmTitle">¿Eliminar permanentemente a este paciente?</h3>
+            <p class="confirm-modal-text" id="deletePatientConfirmText">Esta acción es permanente. También se eliminarán sus notas clínicas, antecedentes médicos, tratamientos y el historial de tratamientos asociado.</p>
+            <p class="confirm-modal-text" id="deletePatientMessage" role="alert" aria-live="polite"></p>
+
+            <div class="confirm-modal-actions">
+                <button
+                    type="button"
+                    id="cancelDeletePatientButton"
+                    class="secondary-button"
+                >
+                    Cancelar
+                </button>
+                <button
+                    type="button"
+                    id="confirmDeletePatientButton"
+                    class="danger-button"
+                >
+                    Sí, eliminar paciente
+                </button>
+            </div>
+        </div>
+    </div>
+
 
         </main>
 
@@ -1726,6 +1772,7 @@
     <script src="js/treatments.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/patients.js"></script>
+    <script src="js/delete.js"></script>
     <script src="js/patient-indicators.js"></script>
 
 </body>
