@@ -2895,6 +2895,120 @@ body.dark-mode .editorial-chart .secondary-button.delete-patient-button:hover {
     color: #FFFFFF !important;
 }
 
+.medical-history-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.patient-signature-status {
+    margin: 14px 22px 20px;
+    color: #0B6176;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.medical-history-actions button:disabled {
+    cursor: not-allowed;
+    opacity: 0.62;
+}
+
+.patient-signature-modal .patient-signature-content {
+    max-width: 580px;
+    text-align: left;
+}
+
+.patient-signature-content .confirm-modal-title {
+    text-align: center;
+}
+
+.patient-signature-content .confirm-modal-text {
+    margin-bottom: 16px;
+}
+
+.patient-signature-canvas-wrap {
+    overflow: hidden;
+    border: 1px solid #CBD5E1;
+    border-radius: 6px;
+    background: #FFFFFF;
+}
+
+.patient-signature-canvas {
+    display: block;
+    width: 100%;
+    height: 180px;
+    touch-action: none;
+    cursor: crosshair;
+}
+
+.patient-signature-tools {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.patient-signature-confirm {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    margin: 18px 0 12px;
+    color: #334155;
+    font-size: 14px;
+    line-height: 1.45;
+    text-align: left;
+}
+
+.patient-signature-confirm input {
+    flex: 0 0 auto;
+    margin-top: 3px;
+    accent-color: #0B6176;
+}
+
+.patient-signature-message {
+    min-height: 1.5em;
+    color: #B42318;
+}
+
+body.dark-mode .patient-signature-status {
+    color: #5EEAD4;
+}
+
+body.dark-mode .patient-signature-canvas-wrap {
+    border-color: #475569;
+}
+
+body.dark-mode .patient-signature-confirm {
+    color: #CBD5E1;
+}
+
+body.dark-mode .patient-signature-message {
+    color: #FDA29B;
+}
+
+@media (max-width: 600px) {
+    .medical-history-actions {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .medical-history-actions button {
+        flex: 1 1 auto;
+    }
+
+    .patient-signature-modal {
+        padding: 12px;
+    }
+
+    .patient-signature-modal .patient-signature-content {
+        padding: 24px 18px;
+    }
+
+    .patient-signature-canvas {
+        height: 150px;
+    }
+}
+
 /* Cuadrícula de datos: líneas divisorias oscuras */
 body.dark-mode .editorial-chart .ec-grid {
     background: #334155 !important;
