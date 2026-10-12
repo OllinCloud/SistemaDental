@@ -539,6 +539,7 @@
                             id="editFirstName"
                             required
                         >
+                        <span id="editFirstNameError" class="phone-validation-message" role="alert" hidden></span>
                     </div>
 
                     <div class="form-group">
@@ -548,6 +549,7 @@
                             id="editLastName"
                             required
                         >
+                        <span id="editLastNameError" class="phone-validation-message" role="alert" hidden></span>
                     </div>
 
                     <div class="form-group">
@@ -557,7 +559,9 @@
                         <input
                             type="date"
                             id="editBirthDate"
+                            required
                         >
+                        <span id="editBirthDateError" class="phone-validation-message" role="alert" hidden></span>
                     </div>
 
                     <div class="form-group">
@@ -575,7 +579,17 @@
                         <input
                             type="tel"
                             id="editPhone"
+                            inputmode="numeric"
+                            autocomplete="tel-national"
+                            placeholder="(55) 1234-5678"
+                            required
                         >
+                        <span
+                            id="editPhoneError"
+                            class="phone-validation-message"
+                            role="alert"
+                            hidden
+                        ></span>
                     </div>
 
                     <div class="form-group">
@@ -586,6 +600,7 @@
                             type="email"
                             id="editEmail"
                         >
+                        <span id="editEmailError" class="phone-validation-message" role="alert" hidden></span>
                     </div>
 
                     <div class="form-group form-group-full">
@@ -614,6 +629,7 @@
                             type="tel"
                             id="editEmergencyPhone"
                         >
+                        <span id="editEmergencyPhoneError" class="phone-validation-message" role="alert" hidden></span>
                     </div>
 
                     <div class="form-group">
@@ -878,6 +894,7 @@
                             id="newFirstName"
                             required
                         >
+                        <span id="newFirstNameError" class="phone-validation-message" role="alert" hidden></span>
                     </div>
 
                     <div class="form-group">
@@ -889,6 +906,7 @@
                             id="newLastName"
                             required
                         >
+                        <span id="newLastNameError" class="phone-validation-message" role="alert" hidden></span>
                     </div>
 
                     <div class="form-group">
@@ -900,6 +918,7 @@
                             id="newBirthDate"
                             required
                         >
+                        <span id="newBirthDateError" class="phone-validation-message" role="alert" hidden></span>
                     </div>
 
                     <div class="form-group">
@@ -921,8 +940,12 @@
                         <input
                             type="tel"
                             id="newPhone"
+                            inputmode="numeric"
+                            autocomplete="tel-national"
+                            placeholder="(55) 1234-5678"
                             required
                         >
+                        <span id="newPhoneError" class="phone-validation-message" role="alert" hidden></span>
                     </div>
 
                     <div class="form-group">
@@ -933,6 +956,7 @@
                             type="email"
                             id="newEmail"
                         >
+                        <span id="newEmailError" class="phone-validation-message" role="alert" hidden></span>
                     </div>
 
                     <div class="form-group form-group-full">
@@ -963,6 +987,7 @@
                             type="tel"
                             id="newEmergencyPhone"
                         >
+                        <span id="newEmergencyPhoneError" class="phone-validation-message" role="alert" hidden></span>
                     </div>
 
                 </div>
@@ -1693,6 +1718,8 @@
     <script src="js/ui-feedback.js"></script>
     <script src="js/navigation.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/mexican-phone.js"></script>
+    <script src="js/personal-data-validation.js"></script>
     <script src="js/clinical-notes.js"></script>
     <script src="js/medical-history.js"></script>
     <script src="js/new-patient.js"></script>
