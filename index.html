@@ -263,11 +263,14 @@
 
             <div class="patients-toolbar">
 
-                <input
-                    type="text"
-                    id="patientSearch"
-                    placeholder="Buscar por nombre o apellido..."
-                >
+                <label class="patients-search-field" for="patientSearch">
+                    <span>Buscar pacientes</span>
+                    <input
+                        type="text"
+                        id="patientSearch"
+                        placeholder="Buscar por nombre o apellido..."
+                    >
+                </label>
 
                 <button id="newPatientButtonList" class="primary-button hidden" type="button" aria-hidden="true" tabindex="-1">
                     + Nuevo paciente
@@ -278,6 +281,13 @@
 
             <p id="patientsMessage"></p>
 
+            <div class="patients-list-heading" aria-hidden="true">
+                <span>Paciente</span>
+                <span>Estado</span>
+                <span>Teléfono</span>
+                <span>Correo</span>
+                <span>Acciones</span>
+            </div>
 
             <div class="patients-grid" id="patientsTableBody"></div>
 
