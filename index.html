@@ -263,11 +263,14 @@
 
             <div class="patients-toolbar">
 
-                <input
-                    type="text"
-                    id="patientSearch"
-                    placeholder="Buscar por nombre o apellido..."
-                >
+                <label class="patients-search-field" for="patientSearch">
+                    <span>Buscar pacientes</span>
+                    <input
+                        type="text"
+                        id="patientSearch"
+                        placeholder="Buscar por nombre o apellido..."
+                    >
+                </label>
 
                 <button id="newPatientButtonList" class="primary-button hidden" type="button" aria-hidden="true" tabindex="-1">
                     + Nuevo paciente
@@ -278,6 +281,13 @@
 
             <p id="patientsMessage"></p>
 
+            <div class="patients-list-heading" aria-hidden="true">
+                <span>Paciente</span>
+                <span>Estado</span>
+                <span>Teléfono</span>
+                <span>Correo</span>
+                <span>Acciones</span>
+            </div>
 
             <div class="patients-grid" id="patientsTableBody"></div>
 
@@ -365,9 +375,14 @@
                     <h3>Antecedentes médicos</h3>
                     <p>Historial patológico y factores de riesgo</p>
                 </div>
-                <button type="button" id="editMedicalHistoryButton" class="secondary-button ec-action-btn">
-                    Editar antecedentes médicos
-                </button>
+                <div class="medical-history-actions">
+                    <button type="button" id="editMedicalHistoryButton" class="secondary-button ec-action-btn">
+                        Editar antecedentes médicos
+                    </button>
+                    <button type="button" id="openPatientSignatureButton" class="primary-button ec-action-btn">
+                        Firmar antecedentes
+                    </button>
+                </div>
             </div>
 
             <div class="ec-grid">
@@ -441,6 +456,9 @@
                 <span class="ec-label">Observaciones</span>
                 <p id="detailMedicalNotes">No registrado</p>
             </div>
+            <p id="patientSignatureStatus" class="patient-signature-status" role="status" aria-live="polite">
+                Verificando estado de firma...
+            </p>
         </div>
 
 
@@ -1745,6 +1763,52 @@
         </div>
     </div>
 
+    <div
+        id="patientSignatureModal"
+        class="confirm-modal hidden patient-signature-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="patientSignatureTitle"
+        aria-describedby="patientSignatureInstructions"
+    >
+        <div class="confirm-modal-content patient-signature-content">
+            <h3 class="confirm-modal-title" id="patientSignatureTitle">Firma de antecedentes médicos</h3>
+            <p class="confirm-modal-text" id="patientSignatureInstructions">
+                Pide al paciente que firme en el área. La firma anterior se reemplazará si se confirma una nueva.
+            </p>
+
+            <div class="patient-signature-canvas-wrap">
+                <canvas
+                    id="patientSignatureCanvas"
+                    class="patient-signature-canvas"
+                    aria-label="Área para dibujar la firma del paciente"
+                ></canvas>
+            </div>
+
+            <div class="patient-signature-tools">
+                <button type="button" id="clearPatientSignatureButton" class="secondary-button">
+                    Limpiar firma
+                </button>
+            </div>
+
+            <label class="patient-signature-confirm">
+                <input type="checkbox" id="patientReviewedHistoryCheckbox">
+                Confirmo que el paciente revisó sus antecedentes médicos.
+            </label>
+
+            <p id="patientSignatureMessage" class="confirm-modal-text patient-signature-message" role="alert" aria-live="polite"></p>
+
+            <div class="confirm-modal-actions">
+                <button type="button" id="cancelPatientSignatureButton" class="secondary-button">
+                    Cancelar
+                </button>
+                <button type="button" id="savePatientSignatureButton" class="primary-button">
+                    Confirmar firma
+                </button>
+            </div>
+        </div>
+    </div>
+
 
         </main>
 
@@ -1774,6 +1838,7 @@
     <script src="js/patients.js"></script>
     <script src="js/delete.js"></script>
     <script src="js/patient-indicators.js"></script>
+    <script src="js/patient-signature.js"></script>
 
 </body>
 

@@ -73,7 +73,9 @@ const MEDICAL_HISTORY_COLUMNS = `
     smoking,
     alcohol,
     other_conditions,
-    notes
+    notes,
+    signature_path,
+    signed_at
 `;
 
 // Antes había dos funciones casi idénticas

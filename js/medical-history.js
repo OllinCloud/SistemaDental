@@ -24,24 +24,227 @@
    definidos ahí.
    ============================================ */
 
+let medicalHistorySignatureObjectUrl = null;
+
+function getMedicalHistorySignaturePanel() {
+    let panel =
+        document.getElementById('medicalHistorySignaturePanel');
+
+    if (panel) {
+        return panel;
+    }
+
+    panel = document.createElement('div');
+    panel.id = 'medicalHistorySignaturePanel';
+    panel.className = 'form-section';
+
+    const title = document.createElement('h3');
+    title.textContent = 'Firma de confirmación';
+
+    const status = document.createElement('p');
+    status.id = 'medicalHistorySignatureState';
+    status.setAttribute('role', 'status');
+    status.setAttribute('aria-live', 'polite');
+
+    const image = document.createElement('img');
+    image.id = 'medicalHistorySignatureImage';
+    image.alt = 'Firma del paciente';
+    image.hidden = true;
+    image.style.maxWidth = '100%';
+    image.style.maxHeight = '200px';
+    image.style.objectFit = 'contain';
+    image.style.border = '1px solid var(--line)';
+    image.style.borderRadius = '6px';
+
+    const date = document.createElement('p');
+    date.id = 'medicalHistorySignatureDate';
+    date.hidden = true;
+
+    panel.append(title, status, image, date);
+
+    const firstSection =
+        editMedicalHistoryForm.querySelector('.form-section');
+
+    if (firstSection) {
+        editMedicalHistoryForm.insertBefore(panel, firstSection);
+    } else {
+        editMedicalHistoryForm.prepend(panel);
+    }
+
+    return panel;
+}
+
+function showMedicalHistorySignatureState(state, signedAt) {
+    const panel = getMedicalHistorySignaturePanel();
+    const status =
+        panel.querySelector('#medicalHistorySignatureState');
+    const image =
+        panel.querySelector('#medicalHistorySignatureImage');
+    const date =
+        panel.querySelector('#medicalHistorySignatureDate');
+
+    if (medicalHistorySignatureObjectUrl) {
+        URL.revokeObjectURL(medicalHistorySignatureObjectUrl);
+        medicalHistorySignatureObjectUrl = null;
+    }
+
+    image.removeAttribute('src');
+    image.hidden = true;
+    date.hidden = true;
+
+    if (state === 'signed') {
+        status.textContent = 'Estado: Firmado';
+        image.hidden = false;
+        image.src = medicalHistorySignatureObjectUrl =
+            signedAt.objectUrl;
+        date.textContent =
+            `Fecha de firma: ${signedAt.date.toLocaleString('es-MX')}`;
+        date.hidden = false;
+        return;
+    }
+
+    status.textContent = state === 'pending'
+        ? 'Estado: Pendiente de firma'
+        : 'Estado: Error al cargar la firma';
+}
+
+async function loadMedicalHistorySignature(patientId, history) {
+    if (patientId !== currentPatientId) {
+        return;
+    }
+
+    if (
+        !history ||
+        !history.signature_path ||
+        !history.signed_at
+    ) {
+        showMedicalHistorySignatureState('pending');
+        return;
+    }
+
+    const signedAt = new Date(history.signed_at);
+
+    if (
+        Number.isNaN(signedAt.getTime()) ||
+        !isPatientSignaturePathForPatient(
+            history.signature_path,
+            patientId
+        )
+    ) {
+        console.error(
+            'Los metadatos de firma no son válidos para este paciente.'
+        );
+        showMedicalHistorySignatureState('error');
+        return;
+    }
+
+    try {
+        const { data, error } = await supabaseClient
+            .storage
+            .from(PATIENT_SIGNATURE_BUCKET)
+            .download(history.signature_path);
+
+        if (error || !data) {
+            throw error || new Error(
+                'Storage no devolvió el archivo de firma.'
+            );
+        }
+
+        if (patientId !== currentPatientId) {
+            return;
+        }
+
+        const objectUrl = URL.createObjectURL(data);
+        showMedicalHistorySignatureState('signed', {
+            objectUrl,
+            date: signedAt
+        });
+    } catch (signatureError) {
+        if (patientId !== currentPatientId) {
+            return;
+        }
+
+        console.error(
+            'Error al cargar la firma privada del paciente:',
+            signatureError
+        );
+        showMedicalHistorySignatureState('error');
+    }
+}
+
 async function loadMedicalHistoryEditForm(patientId) {
 
-    const { data, error } = await supabaseClient
-        .from('medical_history')
-        .select(MEDICAL_HISTORY_COLUMNS)
-        .eq('patient_id', patientId)
-        .maybeSingle();
+    showMedicalHistorySignatureState('pending');
+
+    let data;
+    let error;
+
+    try {
+        ({ data, error } = await supabaseClient
+            .from('medical_history')
+            .select(MEDICAL_HISTORY_COLUMNS)
+            .eq('patient_id', patientId)
+            .maybeSingle());
+    } catch (queryError) {
+        console.error(
+            'Error al cargar antecedentes médicos:',
+            queryError
+        );
+        if (patientId === currentPatientId) {
+            showMedicalHistorySignatureState('error');
+        }
+        return;
+    }
+
+    if (patientId !== currentPatientId) {
+        return;
+    }
 
     if (error) {
         console.error(
             'Error al cargar antecedentes médicos:',
             error
         );
+        showMedicalHistorySignatureState('error');
         return;
     }
 
     if (!data) {
+        showMedicalHistorySignatureState('pending');
         return;
+    }
+
+    let signatureRecord;
+    let signatureRecordError;
+
+    try {
+        ({
+            data: signatureRecord,
+            error: signatureRecordError
+        } = await getPatientSignatureRecord(patientId));
+    } catch (queryError) {
+        console.error(
+            'Error al consultar el estado de la firma:',
+            queryError
+        );
+        signatureRecordError = queryError;
+    }
+
+    if (patientId !== currentPatientId) {
+        return;
+    }
+
+    if (signatureRecordError) {
+        console.error(
+            'Error al consultar el estado de la firma:',
+            signatureRecordError
+        );
+        showMedicalHistorySignatureState('error');
+    } else {
+        await loadMedicalHistorySignature(
+            patientId,
+            signatureRecord
+        );
     }
 
     document.getElementById('editAllergies').value =

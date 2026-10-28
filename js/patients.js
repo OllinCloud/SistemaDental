@@ -272,6 +272,12 @@ async function loadPatientDetail(patientId) {
         .eq('patient_id', patientId)
         .maybeSingle();
 
+    updatePatientSignatureStatus(
+        medicalHistory,
+        medicalHistoryError,
+        patientId
+    );
+
     if (medicalHistory) {
 
         detailAllergies.textContent =
