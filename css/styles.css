@@ -2910,6 +2910,24 @@ body.dark-mode .editorial-chart .secondary-button.delete-patient-button:hover {
     gap: 10px;
 }
 
+.editorial-chart #openPatientSignatureButton {
+    transition:
+        background-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.15s ease;
+}
+
+.editorial-chart #openPatientSignatureButton:hover:not(:disabled) {
+    background: var(--brand-dark) !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.10);
+    transform: translateY(-1px);
+}
+
+body.dark-mode .editorial-chart #openPatientSignatureButton:hover:not(:disabled) {
+    background: var(--brand) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.30);
+}
+
 .patient-signature-status {
     margin: 14px 22px 20px;
     color: #0B6176;
