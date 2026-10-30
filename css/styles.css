@@ -2918,7 +2918,7 @@ body.dark-mode .editorial-chart .secondary-button.delete-patient-button:hover {
 }
 
 .editorial-chart #openPatientSignatureButton:hover:not(:disabled) {
-    background: var(--brand-dark) !important;
+    background: #0B6176 !important;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.10);
     transform: translateY(-1px);
 }
