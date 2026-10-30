@@ -2859,6 +2859,14 @@ body.dark-mode .secondary-button.ec-action-btn:hover {
     border-color: var(--brand) !important;
 }
 
+body.dark-mode .editorial-chart #openPatientSignatureButton:hover {
+    background: var(--brand-dark) !important;
+    color: #fff !important;
+    border-color: var(--brand-dark) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.30);
+    transform: translateY(-1px);
+}
+
 /* Acción destructiva secundaria en la ficha del paciente */
 .editorial-chart .secondary-button.delete-patient-button {
     gap: 8px;
