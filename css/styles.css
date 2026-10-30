@@ -2845,18 +2845,6 @@ body.dark-mode .editorial-chart .ec-card-num {
     color: #2DD4BF !important;
 }
 
-body:not(.dark-mode) .editorial-chart #openPatientSignatureButton {
-    background: var(--card);
-    color: var(--brand);
-    border: 1px solid var(--line);
-}
-
-body:not(.dark-mode) .editorial-chart #openPatientSignatureButton:hover {
-    background: var(--brand);
-    color: #FFFFFF;
-    border-color: var(--brand);
-}
-
 /* Botones de acción en modo oscuro */
 body.dark-mode .editorial-chart .ec-action-btn,
 body.dark-mode .secondary-button.ec-action-btn {
@@ -2920,21 +2908,6 @@ body.dark-mode .editorial-chart .secondary-button.delete-patient-button:hover {
     flex-wrap: wrap;
     justify-content: flex-end;
     gap: 10px;
-}
-
-.editorial-chart #openPatientSignatureButton {
-    transition:
-        background-color 0.2s ease,
-        box-shadow 0.2s ease,
-        transform 0.15s ease;
-}
-
-body:not(.dark-mode) .editorial-chart #openPatientSignatureButton:hover {
-    background: #0B6176 !important;
-    color: #fff !important;
-    border-color: #0B6176 !important;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.10);
-    transform: translateY(-1px);
 }
 
 body.dark-mode .editorial-chart #openPatientSignatureButton:hover {
