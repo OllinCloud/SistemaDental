@@ -2917,8 +2917,10 @@ body.dark-mode .editorial-chart .secondary-button.delete-patient-button:hover {
         transform 0.15s ease;
 }
 
-.editorial-chart #openPatientSignatureButton:hover {
+body:not(.dark-mode) .editorial-chart #openPatientSignatureButton:hover {
     background: #0B6176 !important;
+    color: #fff !important;
+    border-color: #0B6176 !important;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.10);
     transform: translateY(-1px);
 }
